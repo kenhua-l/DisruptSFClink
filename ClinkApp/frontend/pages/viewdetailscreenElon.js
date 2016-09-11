@@ -16,7 +16,7 @@ import {
 
 import { DetailCard } from '../detailCard';
 
-export default class DetailScreenTravis extends Component {
+export default class DetailScreenElon extends Component {
     render() {
         return (
             <DetailCard 

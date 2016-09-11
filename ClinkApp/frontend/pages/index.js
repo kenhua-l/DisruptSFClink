@@ -9,6 +9,7 @@ import DetailScreenRichard from './viewdetailscreenRichard';
 import DetailScreenPadma from './viewdetailscreenPadma';
 import DetailScreenMeg from './viewdetailscreenMeg';
 import DetailScreenJack from './viewdetailscreenJack';
+import DetailScreenKevin from './viewdetailscreenKevin';
 
 
 export const LoginView = LoginComponent;
@@ -22,3 +23,4 @@ export const DetailScreenViewRichard = DetailScreenRichard;
 export const DetailScreenViewPadma = DetailScreenPadma;
 export const DetailScreenViewMeg = DetailScreenMeg;
 export const DetailScreenViewJack = DetailScreenJack;
+export const DetailScreenViewKevin = DetailScreenKevin;
