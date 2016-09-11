@@ -17,8 +17,8 @@ const TabIconHome = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 200,
-          height: 200
+          width: 24,
+          height: 24
       }} source={require('../images/home.png')} />
     </Text>
   );
@@ -28,8 +28,8 @@ const TabIconFriends = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 200,
-          height: 200
+          width: 24,
+          height: 24
      }} source={require('../images/friends.png')} />
     </Text>
   );
@@ -39,8 +39,8 @@ const TabIconRequest = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 200,
-          height: 200
+          width: 24,
+          height: 24
      }} source={require('../images/request.png')} />
     </Text>
   );
