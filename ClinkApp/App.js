@@ -73,9 +73,9 @@ class App extends Component {
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
-                            <Scene key="mainscreen" component={MainScreenView} title="facebook" hideNavBar icon={TabIcon} initial />
-                            <Scene key="viewuser" component={ViewUserView} title="rocket" hideNavBar icon={TabIcon} />
-                            <Scene key="viewfriend" component={ViewFriendView} title="twitter" hideNavBar icon={TabIcon} />
+                            <Scene key="mainscreen" component={MainScreenView} imgSrc="facebook" hideNavBar icon={TabIcon} initial />
+                            <Scene key="viewuser" component={ViewUserView} imgSrc="rocket" hideNavBar icon={TabIcon} />
+                            <Scene key="viewfriend" component={ViewFriendView} imgSrc="twitter" hideNavBar icon={TabIcon} />
                         </Scene>
                     </Scene>
                 </Scene>
