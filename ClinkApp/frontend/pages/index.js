@@ -9,6 +9,9 @@ import DetailScreenRichard from './viewdetailscreenRichard';
 import DetailScreenPadma from './viewdetailscreenPadma';
 import DetailScreenMeg from './viewdetailscreenMeg';
 import DetailScreenJack from './viewdetailscreenJack';
+import DetailScreenJackMa from './viewdetailscreenJackMa';
+import DetailScreenMarissa from './viewdetailscreenMarissa';
+import DetailScreenAlan from './viewdetailscreenAlan';
 
 
 export const LoginView = LoginComponent;
@@ -22,3 +25,6 @@ export const DetailScreenViewRichard = DetailScreenRichard;
 export const DetailScreenViewPadma = DetailScreenPadma;
 export const DetailScreenViewMeg = DetailScreenMeg;
 export const DetailScreenViewJack = DetailScreenJack;
+export const DetailScreenViewJackMa = DetailScreenJackMa;
+export const DetailScreenViewMarissa = DetailScreenMarissa;
+export const DetailScreenViewAlan = DetailScreenAlan;

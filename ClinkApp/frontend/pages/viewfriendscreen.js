@@ -8,8 +8,10 @@ export default class ViewFriendScreenComponent extends React.Component {
   render() {
     return (
       <Text>
-            This is the friends screen.
+            This is the request screen.
       </Text>
     );
   }
 };
+
+
