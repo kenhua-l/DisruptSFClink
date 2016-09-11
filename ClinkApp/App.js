@@ -21,7 +21,11 @@ import {
 
 import NavigationDrawer from './components/NavigationDrawer';
 import TabView from './components/TabView';
-import TabIcon from './components/TabIcon';
+import {
+    TabIconHome,
+    TabIconFriends,
+    TabIconRequest,
+} from './components/TabIcon';
 
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
@@ -73,9 +77,9 @@ class App extends Component {
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
-                            <Scene key="mainscreen" component={MainScreenView} imgSrc="facebook" hideNavBar icon={TabIcon} initial />
-                            <Scene key="viewuser" component={ViewUserView} imgSrc="rocket" hideNavBar icon={TabIcon} />
-                            <Scene key="viewfriend" component={ViewFriendView} imgSrc="twitter" hideNavBar icon={TabIcon} />
+                            <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial />
+                            <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
+                            <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
                         </Scene>
                     </Scene>
                 </Scene>
