@@ -8,6 +8,8 @@ import DetailScreenEvan from './viewdetailscreenEvan';
 import DetailScreenRichard from './viewdetailscreenRichard';
 import DetailScreenPadma from './viewdetailscreenPadma';
 import DetailScreenMeg from './viewdetailscreenMeg';
+import DetailScreenJack from './viewdetailscreenJack';
+
 
 export const LoginView = LoginComponent;
 export const MainScreenView = MainScreenComponent;
@@ -19,3 +21,4 @@ export const DetailScreenViewEvan = DetailScreenEvan;
 export const DetailScreenViewRichard = DetailScreenRichard;
 export const DetailScreenViewPadma = DetailScreenPadma;
 export const DetailScreenViewMeg = DetailScreenMeg;
+export const DetailScreenViewJack = DetailScreenJack;
