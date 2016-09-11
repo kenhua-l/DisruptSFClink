@@ -4,45 +4,52 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-    AppRegistry,
-    Text,
-    View
-} from 'react-native';
+import { AppRegistry } from 'react-native';
 
-import {
-    LoginView,
-    MainScreenView,
-    ViewUserView,
-    ViewFriendView
-} from './frontend/pages/';
+import Example from './Example';
 
-import { Styles } from './frontend/styles';
+AppRegistry.registerComponent('ClinkApp', () => Example);
 
 
-class ClinkApp extends Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                  Welcome to React Native!
-                </Text>
-                <Text style={styles.instructions}>
-                  To get started, edit index.android.js
-                </Text>
-                <Text style={styles.instructions}>
-                  Double tap R on your keyboard to reload,{'\n'}
-                  Shake or press menu button for dev menu
-                </Text>
-                <LoginView />
-            </View>
-        );
-    }
-}
+// import React, { Component } from 'react';
+// import {
+//     AppRegistry,
+//     Text,
+//     View
+// } from 'react-native';
+
+// import {
+//     LoginView,
+//     MainScreenView,
+//     ViewUserView,
+//     ViewFriendView
+// } from './frontend/pages/';
+
+// import { Styles } from './frontend/styles';
+
+
+// class ClinkApp extends Component {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <Text style={styles.welcome}>
+//                   Welcome to React Native!
+//                 </Text>
+//                 <Text style={styles.instructions}>
+//                   To get started, edit index.android.js
+//                 </Text>
+//                 <Text style={styles.instructions}>
+//                   Double tap R on your keyboard to reload,{'\n'}
+//                   Shake or press menu button for dev menu
+//                 </Text>
+//                 <LoginView />
+//             </View>
+//         );
+//     }
+// }
 
 
 
-const styles = Styles;
+// const styles = Styles;
 
-AppRegistry.registerComponent('ClinkApp', () => LoginView);
+// AppRegistry.registerComponent('ClinkApp', () => ClinkApp);
