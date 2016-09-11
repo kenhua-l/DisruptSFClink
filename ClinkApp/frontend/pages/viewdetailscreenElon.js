@@ -29,6 +29,10 @@ export default class DetailScreenElon extends Component {
                 coySrc={require('../../images/telsa.png')}
                 short_des='Tesla Motors was started by a group of Silicon Valley entrepreneurs and strives to create a revolution.'
                 investors='Benchmark, Lightspeed Ventu...'
+                tcSrc={require('../../images/tc_tesla.jpg')}
+                title='Tesla’s weird week'
+                starting='IT DevOps monitoring company ScriptRock has recently received 8.7 million...'
+                tcurl="It's been a weird few days for Tesla...."
             />
         );
     }
