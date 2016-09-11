@@ -6,6 +6,8 @@ import {
   TextInput,
   Image
 } from 'react-native';
+import Button from 'react-native-button';
+import { Actions } from 'react-native-router-flux';
 
 var Dimensions = require('Dimensions');
 var windowSize = Dimensions.get('window');
@@ -54,7 +56,9 @@ export default class LoginComponent extends React.Component {
           </View>
         </View>
         <View style={styles.signin}>
-          <Text style={styles.whiteFont}>Sign In</Text>
+          <Button onPress={Actions.tabbar}>
+            <Text style={styles.whiteFont}>Sign In</Text>
+          </Button>
         </View>
         <View style={styles.signup}>
           <Text style={styles.greyFont}>Don't have an account?<Text style={styles.signUpFont}>  Sign Up</Text></Text>
@@ -143,4 +147,4 @@ var styles = StyleSheet.create({
       fontSize: 15,
       color: '#000'
     }
-})
+});
