@@ -14,6 +14,7 @@ import DetailScreenMarissa from './viewdetailscreenMarissa';
 import DetailScreenAlan from './viewdetailscreenAlan';
 import DetailScreenKevin from './viewdetailscreenKevin';
 import EditScreen from './editscreen';
+import DetailScreenJohn from './viewdetailscreenJohn';
 
 export const LoginView = LoginComponent;
 export const MainScreenView = MainScreenComponent;
@@ -31,3 +32,4 @@ export const DetailScreenViewMarissa = DetailScreenMarissa;
 export const DetailScreenViewAlan = DetailScreenAlan;
 export const DetailScreenViewKevin = DetailScreenKevin;
 export const EditScreenView = EditScreen;
+export const DetailScreenViewJohn = DetailScreenJohn;

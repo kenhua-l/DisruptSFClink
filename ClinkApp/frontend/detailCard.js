@@ -16,11 +16,18 @@ import {
 } from 'react-native-card-view';
 import Button from 'react-native-button';
 
+import Hyperlink from 'react-native-hyperlink';
+
 const cardBorder = { borderWidth: 2, borderColor: '#e7e7e7', margin: 3, padding: 7 };
 const cardTitle = { fontSize: 36, backgroundColor: 'transparent'};
 const styleImage = { height: 150, width: 150 };
+const styleTCImage = { height: 100, width: 100 };
+const styleTC = {flex: 1, flexDirection: 'row', marginTop: 10};
+const styleTCCard = {marginTop: 10, fontSize: 16, backgroundColor: 'transparent', marginLeft: 10};
+const styleTCCardSub = {marginTop: 10, fontSize: 12, backgroundColor: 'transparent', marginLeft: 10};
 const styleProfile = {flex: 1, flexDirection: 'row'};
 const subHeadingStyle = { marginTop: 5, fontSize: 24, fontWeight: 'bold'};
+const textWrap = {flexDirection: 'column', flex: 0.8}
 
 export class DetailCard extends React.Component {
     constructor(props){
@@ -79,9 +86,25 @@ export class DetailCard extends React.Component {
                     <Text style={ {fontSize: 18} }>
                         {props.investors}
                     </Text>
-                    <Text style={ cardTitle }>
-                        TC Article
+                </View>
+                <View>    
+                    <Text style={subHeadingStyle}>
+                        News
                     </Text>
+                    
+                        <View style={styleTC}>
+                            <Image 
+                                style={styleTCImage}
+                                source={props.tcSrc}
+                            />
+                            <View style={textWrap}>
+                            
+                                <Text style={ styleTCCard }>
+                                    {props.title}
+                                </Text>
+                                <Text style={ styleTCCardSub }> {props.starting}</Text>
+                            </View>
+                        </View>  
                 </View>
             </View>
             <View>

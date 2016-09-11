@@ -129,7 +129,7 @@ var styles = StyleSheet.create({
         top: 12,
         right: 0,
         height: 20,
-        fontSize: 14
+        fontSize: 14,
     },
     forgotContainer: {
       alignItems: 'flex-end',
