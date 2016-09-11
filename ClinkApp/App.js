@@ -23,7 +23,8 @@ import {
     DetailScreenViewAlan,
     DetailScreenViewMarissa,
     DetailScreenViewJack,
-    DetailScreenViewKevin
+    DetailScreenViewKevin,
+    EditScreenView,
 } from './frontend/pages';
 import {
     Text,
@@ -36,6 +37,7 @@ import {
     TabIconHome,
     TabIconFriends,
     TabIconRequest,
+    TabIconEdit,
 } from './components/TabIcon';
 
 const styles = StyleSheet.create({
@@ -102,6 +104,7 @@ class App extends Component {
                             <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial />
                             <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
                             <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
+                            <Scene key="editprofile" component={EditScreenView} imgSrc="C.png" hideNavBar icon={TabIconEdit} />
                         </Scene>
                     </Scene>
                 </Scene>

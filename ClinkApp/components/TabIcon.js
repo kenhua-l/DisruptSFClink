@@ -45,7 +45,18 @@ const TabIconRequest = (props) => {
     </Text>
   );
 };
+
+const TabIconEdit = (props) => {
+  return (
+    <Text>
+      <Image style={{
+          width: 24,
+          height: 24
+     }} source={require('../images/edit_user.png')} />
+    </Text>
+  );
+};
   //   style={{ color: props.selected ? 'red' : 'black' }}
   // >
   //   {props.title}
-export { TabIconRequest, TabIconFriends, TabIconHome };
+export { TabIconRequest, TabIconFriends, TabIconHome, TabIconEdit };
