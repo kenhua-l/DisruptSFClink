@@ -12,6 +12,22 @@ import {
   View
 } from 'react-native';
 
+// Example components
+class LoginComponent extends Component {
+  render() {
+    let localVariable = 'ABC';
+    if (true) {
+      localVariable += 'asd';
+    }
+    return (
+      <Text>
+        <Text>Login {localVariable}</Text>
+        <Text>Login</Text>
+      </Text>
+    );
+  }
+};
+
 class ClinkApp extends Component {
   render() {
     return (
@@ -26,10 +42,13 @@ class ClinkApp extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <LoginComponent />
       </View>
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
