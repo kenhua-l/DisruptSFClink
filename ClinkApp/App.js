@@ -80,8 +80,8 @@ class App extends Component {
         return (
             <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
                 <Scene key="root">
-                    <Scene key="login" component={LoginView} />
-                    <Scene key="tabbar" initial>
+                    <Scene key="login" component={LoginView} initial/>
+                    <Scene key="tabbar" >
                         <Scene
                         key="main"
                         tabs
