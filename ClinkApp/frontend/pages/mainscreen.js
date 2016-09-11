@@ -35,11 +35,11 @@ const TempoCard = (props) => {
                 <View style={styleProfile}>
                     <Image 
                         style={styleImage}
-                        source={{uri: props.imgSrc}}
+                        source={props.imgSrc}
                     />
                     <Image 
                         style={styleSmallImage}
-                        source={{uri: props.coySrc}}
+                        source={props.coySrc}
                     />
                     <View>
                         <Text style={ cardTitle }>
@@ -52,7 +52,7 @@ const TempoCard = (props) => {
                             {props.company}
                         </Text>
                         <Text style={{fontStyle:'italic', paddingLeft:155}}>
-                            10 feet away
+                            {props.feet} feet away
                         </Text>
                     </View>
                 </View>
@@ -70,8 +70,9 @@ export default class CardExample extends Component {
                     last_name='Spiegel'
                     role='CEO'
                     company='Snapchat'
-                    imgSrc='../../images/evan.png'
-                    coySrc='../../images/snapchat.png'
+                    imgSrc={require('../../images/evan.png')}
+                    coySrc={require('../../images/snapchat.png')}
+                    feet='10'
                 />
             </Button>
             <Button onPress={Actions.detailtravis}>
@@ -80,8 +81,9 @@ export default class CardExample extends Component {
                     last_name='Kalanick'
                     role='CEO'
                     company='Uber'
-                    imgSrc='../../images/travis.png'
-                    coySrc='../../images/uber.png'
+                    imgSrc={require('../../images/travis.png')}
+                    coySrc={require('../../images/uber.png')}
+                    feet='13'
                 />
             </Button>
             <Button onPress={Actions.detailelon}>
@@ -90,68 +92,31 @@ export default class CardExample extends Component {
                     last_name='Musk'
                     role='Entrepreneur'
                     company='Space X'
-                    imgSrc='../../images/elon.png'
-                    coySrc='../../images/telsa.png'
+                    imgSrc={require('../../images/elon.png')}
+                    coySrc={require('../../images/telsa.png')}
+                    feet='21'
                 />
             </Button>
-            <Button onPress={Actions.detailelon}>
-                <TempoCard
-                    first_name='Evan'
-                    last_name='Spiegel'
-                    role='CEO'
-                    company='Snapchat'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
-                />
-            </Button>
-            <Button onPress={Actions.detailelon}>
-                <TempoCard
-                    first_name='Travis'
-                    last_name='Kalanick'
-                    role='CEO'
-                    company='Uber'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
-                />
-            </Button>
-            <Button onPress={Actions.detailelon}>
+            <Button onPress={Actions.detailjack}>
                 <TempoCard 
-                    first_name='Elon'
-                    last_name='Musk'
-                    role='Entrepreneur'
-                    company='Space X'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
-                />
-            </Button>
-            <Button onPress={Actions.detailelon}>
-                <TempoCard
-                    first_name='Evan'
-                    last_name='Spiegel'
+                    first_name='Jack'
+                    last_name='Dorsey'
                     role='CEO'
-                    company='Snapchat'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                    company='Twitter'
+                    imgSrc={require('../../images/jack.png')}
+                    coySrc={require('../../images/twitter.jpg')}
+                    feet='30'
                 />
             </Button>
-            <Button onPress={Actions.detailelon}>
-                <TempoCard
-                    first_name='Travis'
-                    last_name='Kalanick'
-                    role='CEO'
-                    company='Uber'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
-                />
-            </Button>
-            <Button onPress={Actions.detailelon}>
+            <Button onPress={Actions.detailkevin}>
                 <TempoCard 
-                    first_name='Elon'
-                    last_name='Musk'
-                    role='Entrepreneur'
-                    company='Space X'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                    first_name='Jack'
+                    last_name='Dorsey'
+                    role='CEO'
+                    company='Twitter'
+                    imgSrc={require('../../images/kevin.jpg')}
+                    coySrc={require('../../images/insta.jpg')}
+                    feet='35'
                 />
             </Button>
             </ScrollView>
