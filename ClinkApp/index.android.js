@@ -14,8 +14,8 @@ import {
 import {
     LoginView,
     MainScreenView,
-    ViewUserView
-    ViewFriendView,
+    ViewUserView,
+    ViewFriendView
 } from './frontend/pages/';
 
 import { Styles } from './frontend/styles';
@@ -45,4 +45,4 @@ class ClinkApp extends Component {
 
 const styles = Styles;
 
-AppRegistry.registerComponent('ClinkApp', () => ClinkApp);
+AppRegistry.registerComponent('ClinkApp', () => LoginView);
