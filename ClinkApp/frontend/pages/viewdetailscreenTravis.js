@@ -24,7 +24,7 @@ export default class DetailScreenTravis extends Component {
                 last_name='Kalanick'
                 role='CEO'
                 company='Uber'
-                coy_web='www.uber.com'
+                coy_web='https://www.uber.com'
                 imgSrc={require('../../images/travis.png')}
                 coySrc={require('../../images/uber.png')}
                 short_des='Uber, a San Francisco-based technology startup, is innovating at the intersection of lifestyle and logistics. Uber connects riders with safe, reliable, convenient transportation providers at a variety of price-points in cities around the world.'

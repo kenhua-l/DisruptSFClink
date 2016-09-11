@@ -24,7 +24,7 @@ export default class DetailScreenTravis extends Component {
                 last_name='Spiegel'
                 role='CEO'
                 company='Snapchat'
-                coy_web='www.snapchat.com'
+                coy_web='https://www.snapchat.com'
                 imgSrc={require('../../images/evan.png')}
                 coySrc={require('../../images/snapchat.png')}
                 short_des='Snapchat is a photo messaging app that allows users to take photos, record videos, add text and drawings, and send them to recipients.'

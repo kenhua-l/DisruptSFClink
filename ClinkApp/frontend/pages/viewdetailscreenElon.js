@@ -24,7 +24,7 @@ export default class DetailScreenElon extends Component {
                 last_name='Musk'
                 role='CEO'
                 company='Telsa Motors, SpaceX, So..'
-                coy_web='www.tesla.com'
+                coy_web='https://www.tesla.com'
                 imgSrc={require('../../images/elon.png')}
                 coySrc={require('../../images/telsa.png')}
                 short_des='Tesla Motors was started by a group of Silicon Valley entrepreneurs and strives to create a revolution.'

@@ -24,7 +24,7 @@ export default class DetailScreenJack extends Component {
                 last_name='Systrom'
                 role='CEO'
                 company='Instagram'
-                coy_web='www.instagram.com'
+                coy_web='https://www.instagram.com'
                 imgSrc={require('../../images/kevin.jpg')}
                 coySrc={require('../../images/insta.jpg')}
                 short_des="Instagram is a free photo sharing application that enables its users to take photos, apply filters, and share them on social networks."

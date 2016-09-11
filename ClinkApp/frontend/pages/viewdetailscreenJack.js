@@ -24,7 +24,7 @@ export default class DetailScreenJack extends Component {
                 last_name='Dorsey'
                 role='CEO'
                 company='Twitter'
-                coy_web='www.twitter.com'
+                coy_web='https://www.twitter.com'
                 imgSrc={require('../../images/jack.png')}
                 coySrc={require('../../images/twitter.jpg')}
                 short_des="Twitter is a global social networking platform that allows its users to send and read 140-character messages known as 'tweets.'"
