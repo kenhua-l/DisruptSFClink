@@ -27,7 +27,7 @@ export default class DetailScreenTravis extends Component {
                 coy_web='www.uber.com'
                 imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
                 coySrc='https://getmdl.io/assets/demos/image_card.jpg'
-                short_des='Snapchat is a photo messaging app that allows users to take photos, record videos, add text and drawings, and send them to recipients.'
+                short_des='Uber, a San Francisco-based technology startup, is innovating at the intersection of lifestyle and logistics. Uber connects riders with safe, reliable, convenient transportation providers at a variety of price-points in cities around the world.'
                 investors='Benchmark, Lightspeed Ventu...'
             />
         );
