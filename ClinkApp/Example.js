@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import Launch from './components/Launch';
 import Register from './components/Register';
-import Login from './components/Login';
+import Login from './frontend/pages/login';
 import Login2 from './components/Login2';
 import Login3 from './components/Login3';
 import {
