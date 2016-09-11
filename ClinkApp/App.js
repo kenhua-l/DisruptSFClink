@@ -21,7 +21,9 @@ import {
     DetailScreenViewMeg,
     DetailScreenViewJackMa,
     DetailScreenViewAlan,
-    DetailScreenViewMarissa
+    DetailScreenViewMarissa,
+    DetailScreenViewJack,
+    DetailScreenViewKevin
 } from './frontend/pages';
 import {
     Text,
@@ -88,6 +90,8 @@ class App extends Component {
                         >
                             <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
                             <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
+                            <Scene key="detailjack" component={DetailScreenViewJack} hideNavBar/>
+                            <Scene key="detailkevin" component={DetailScreenViewKevin} hideNavBar/>
                             <Scene key="detailelon" component={DetailScreenViewElon} hideNavBar/>
                             <Scene key="detailrichard" component={DetailScreenViewRichard} hideNavBar/>
                             <Scene key="detailpadma" component={DetailScreenViewPadma} hideNavBar/>
