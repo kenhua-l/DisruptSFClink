@@ -80,6 +80,16 @@ export default class CardExample extends Component {
                     coySrc={require('../../images/uber.png')}
                 />
             </Button>
+            <Button onPress={Actions.detailpadma}>
+                <TempoCard
+                    first_name='Padmasree'
+                    last_name='Warrior'
+                    role='CEO'
+                    company='NextEV'
+                    imgSrc={require('../../images/padma.png')}
+                    coySrc={require('../../images/nextev.png')}
+                />
+            </Button>
             <Button onPress={Actions.detailelon}>
                 <TempoCard 
                     first_name='Elon'
@@ -88,6 +98,26 @@ export default class CardExample extends Component {
                     company='Space X'
                     imgSrc={require('../../images/elon.png')}
                     coySrc={require('../../images/telsa.png')}
+                />
+            </Button>
+            <Button onPress={Actions.detailmeg}>
+                <TempoCard
+                    first_name='Meg'
+                    last_name='Hendricks'
+                    role='Presiden & CEO'
+                    company='Hewlett-Packard'
+                    imgSrc={require('../../images/meg.jpg')}
+                    coySrc={require('../../images/hp.jpg')}
+                />
+            </Button>
+            <Button onPress={Actions.detailrichard}>
+                <TempoCard
+                    first_name='Richard'
+                    last_name='Hendricks'
+                    role='CEO'
+                    company='Pied Piper'
+                    imgSrc={require('../../images/richard.png')}
+                    coySrc={require('../../images/piedpiper.png')}
                 />
             </Button>
             </ScrollView>

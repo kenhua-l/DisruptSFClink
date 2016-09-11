@@ -16,6 +16,9 @@ import {
     DetailScreenViewTravis,
     DetailScreenViewEvan,
     DetailScreenViewElon,
+    DetailScreenViewRichard,
+    DetailScreenViewPadma,
+    DetailScreenViewMeg
 } from './frontend/pages';
 import {
     Text,
@@ -83,6 +86,9 @@ class App extends Component {
                             <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
                             <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
                             <Scene key="detailelon" component={DetailScreenViewElon} hideNavBar/>
+                            <Scene key="detailrichard" component={DetailScreenViewRichard} hideNavBar/>
+                            <Scene key="detailpadma" component={DetailScreenViewPadma} hideNavBar/>
+                            <Scene key="detailmeg" component={DetailScreenViewMeg} hideNavBar/>
                             <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial />
                             <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
                             <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
