@@ -3,7 +3,10 @@ import React, {
 } from 'react';
 import {
   Text,
+  Image,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 const propTypes = {
   selected: PropTypes.bool,
@@ -11,13 +14,13 @@ const propTypes = {
 };
 
 const TabIcon = (props) => (
-  <Text
-    style={{ color: props.selected ? 'red' : 'black' }}
-  >
-    {props.title}
-  </Text>
+    <Image style={{
+        width: 200,
+        height: 200
+    }} source={require(`../images/${props.imgSrc}`)} />
 );
 
-TabIcon.propTypes = propTypes;
-
+  //   style={{ color: props.selected ? 'red' : 'black' }}
+  // >
+  //   {props.title}
 export default TabIcon;

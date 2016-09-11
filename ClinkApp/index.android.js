@@ -6,9 +6,11 @@
 
 import { AppRegistry } from 'react-native';
 
-import Example from './Example';
+// import Example from './Example';
+// AppRegistry.registerComponent('ClinkApp', () => Example);
 
-AppRegistry.registerComponent('ClinkApp', () => Example);
+import App from './App';
+AppRegistry.registerComponent('ClinkApp', () => App);
 
 
 // import React, { Component } from 'react';
