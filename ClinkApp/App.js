@@ -69,8 +69,8 @@ class App extends Component {
         return (
             <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
                 <Scene key="root">
-                    <Scene key="login" component={LoginView} initial/>
-                    <Scene key="tabbar" component={NavigationDrawer}>
+                    <Scene key="login" component={LoginView} />
+                    <Scene key="tabbar" component={NavigationDrawer} initial>
                         <Scene
                         key="main"
                         tabs
@@ -87,11 +87,4 @@ class App extends Component {
         );
     }
 }
-/*
-<Scene key="tabbar" tabs component={TabView}>
-    <Scene key="mainscreen" component={MainScreenView} type="replace" />
-    <Scene key="viewuser" component={ViewUserView} />
-    <Scene key="viewfriend" component={ViewFriendView} />
-</Scene>
-*/
 export default App;
