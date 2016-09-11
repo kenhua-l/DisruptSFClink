@@ -13,6 +13,7 @@ import DetailScreenJackMa from './viewdetailscreenJackMa';
 import DetailScreenMarissa from './viewdetailscreenMarissa';
 import DetailScreenAlan from './viewdetailscreenAlan';
 import DetailScreenKevin from './viewdetailscreenKevin';
+import DetailScreenJohn from './viewdetailscreenJohn';
 
 
 export const LoginView = LoginComponent;
@@ -30,3 +31,4 @@ export const DetailScreenViewJackMa = DetailScreenJackMa;
 export const DetailScreenViewMarissa = DetailScreenMarissa;
 export const DetailScreenViewAlan = DetailScreenAlan;
 export const DetailScreenViewKevin = DetailScreenKevin;
+export const DetailScreenViewJohn = DetailScreenJohn;
