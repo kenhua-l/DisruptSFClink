@@ -13,14 +13,39 @@ const propTypes = {
   title: PropTypes.string,
 };
 
-const TabIcon = (props) => (
-    <Image style={{
-        width: 200,
-        height: 200
-    }} source={require(`../images/${props.imgSrc}`)} />
-);
+const TabIconHome = (props) => {
+  return (
+    <Text>
+      <Image style={{
+          width: 200,
+          height: 200
+      }} source={require('../images/home.png')} />
+    </Text>
+  );
+};
 
+const TabIconFriends = (props) => {
+  return (
+    <Text>
+      <Image style={{
+          width: 200,
+          height: 200
+     }} source={require('../images/friends.png')} />
+    </Text>
+  );
+};
+
+const TabIconRequest = (props) => {
+  return (
+    <Text>
+      <Image style={{
+          width: 200,
+          height: 200
+     }} source={require('../images/request.png')} />
+    </Text>
+  );
+};
   //   style={{ color: props.selected ? 'red' : 'black' }}
   // >
   //   {props.title}
-export default TabIcon;
+export { TabIconRequest, TabIconFriends, TabIconHome };
