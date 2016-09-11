@@ -1,20 +1,18 @@
 import React from 'react';
 import {
   Text,
-  View
+  View,
 } from 'react-native';
+import Button from 'react-native-button';
+import { Actions } from 'react-native-router-flux';
 
 export default class LoginComponent extends React.Component {
   render() {
-    let localVariable = 'ABC';
-    if (true) {
-      localVariable += 'asd';
-    }
     return (
-      <Text>
-        <Text>Login {localVariable}</Text>
+      <View>
         <Text>Login</Text>
-      </Text>
+        <Button onPress={Actions.tabbar}>Back</Button>
+      </View>
     );
   }
 };
