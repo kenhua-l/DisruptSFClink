@@ -14,7 +14,7 @@ import {
     CardAction
 } from 'react-native-card-view';
 
-import { DetailCard } from '../detailCard'
+import { DetailCard } from '../detailCard';
 
 export default class DetailScreenTravis extends Component {
     render() {
@@ -25,8 +25,8 @@ export default class DetailScreenTravis extends Component {
                 role='CEO'
                 company='Snapchat'
                 coy_web='www.snapchat.com'
-                imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                imgSrc={require('../../images/evan.png')}
+                coySrc={require('../../images/snapchat.png')}
                 short_des='Snapchat is a photo messaging app that allows users to take photos, record videos, add text and drawings, and send them to recipients.'
                 investors='Benchmark, Lightspeed Ventu...'
             />

@@ -14,7 +14,7 @@ import {
     CardAction
 } from 'react-native-card-view';
 
-import { DetailCard } from '../detailCard'
+import { DetailCard } from '../detailCard';
 
 export default class DetailScreenTravis extends Component {
     render() {
@@ -25,8 +25,8 @@ export default class DetailScreenTravis extends Component {
                 role='CEO'
                 company='Uber'
                 coy_web='www.uber.com'
-                imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                imgSrc={require('../../images/travis.png')}
+                coySrc={require('../../images/uber.png')}
                 short_des='Uber, a San Francisco-based technology startup, is innovating at the intersection of lifestyle and logistics. Uber connects riders with safe, reliable, convenient transportation providers at a variety of price-points in cities around the world.'
                 investors='Benchmark, Lightspeed Ventu...'
             />

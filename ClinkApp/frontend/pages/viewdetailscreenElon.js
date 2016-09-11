@@ -25,8 +25,8 @@ export default class DetailScreenTravis extends Component {
                 role='CEO'
                 company='Telsa Motors, SpaceX, So..'
                 coy_web='www.tesla.com'
-                imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                imgSrc={require('../../images/elon.png')}
+                coySrc={require('../../images/telsa.png')}
                 short_des='Tesla Motors was started by a group of Silicon Valley entrepreneurs and strives to create a revolution.'
                 investors='Benchmark, Lightspeed Ventu...'
             />

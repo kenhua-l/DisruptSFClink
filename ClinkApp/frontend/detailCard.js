@@ -29,7 +29,7 @@ export const DetailCard = (props) => {
             <View style={styleProfile}>
                 <Image 
                     style={styleImage}
-                    source={{uri: props.imgSrc}}
+                    source={props.imgSrc}
                 />
             </View>
             <View>
@@ -46,7 +46,7 @@ export const DetailCard = (props) => {
             <View style={styleProfile}>
                 <Image 
                     style={styleImage}
-                    source={{uri: props.coySrc}}
+                    source={props.coySrc}
                 />
             </View>
             <View>

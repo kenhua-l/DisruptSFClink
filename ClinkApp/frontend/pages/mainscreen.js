@@ -31,11 +31,11 @@ const TempoCard = (props) => {
             <View style={styleProfile}>
                 <Image 
                     style={styleImage}
-                    source={{uri: props.imgSrc}}
+                    source={props.imgSrc}
                 />
                 <Image 
                     style={styleImage}
-                    source={{uri: props.coySrc}}
+                    source={props.coySrc}
                 />
             </View>
         </Card>
@@ -66,8 +66,8 @@ export default class CardExample extends Component {
                     last_name='Spiegel'
                     role='CEO'
                     company='Snapchat'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                    imgSrc={require('../../images/evan.png')}
+                    coySrc={require('../../images/snapchat.png')}
                 />
             </Button>
             <Button onPress={Actions.detailtravis}>
@@ -76,8 +76,8 @@ export default class CardExample extends Component {
                     last_name='Kalanick'
                     role='CEO'
                     company='Uber'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                    imgSrc={require('../../images/travis.png')}
+                    coySrc={require('../../images/uber.png')}
                 />
             </Button>
             <Button onPress={Actions.detailelon}>
@@ -86,8 +86,8 @@ export default class CardExample extends Component {
                     last_name='Musk'
                     role='Entrepreneur'
                     company='Space X'
-                    imgSrc='https://getmdl.io/assets/demos/image_card.jpg'
-                    coySrc='https://getmdl.io/assets/demos/image_card.jpg'
+                    imgSrc={require('../../images/elon.png')}
+                    coySrc={require('../../images/telsa.png')}
                 />
             </Button>
             </ScrollView>
