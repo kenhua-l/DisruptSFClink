@@ -4,6 +4,7 @@ Follow the instructions of react native set up from here
 
 https://facebook.github.io/react-native/releases/next/docs/getting-started.html
 
+run `npm install` to save your ass
 The two codes below in two separate terminals. Start with  `react-native start`
 ```
 react-native start
