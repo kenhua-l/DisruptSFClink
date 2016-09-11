@@ -1,53 +1,155 @@
-import React from 'react';
-import {PropTypes} from "react";
-import {StyleSheet, Text, View} from "react-native";
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView
+} from 'react-native';
+
 import Button from 'react-native-button';
-import { Actions } from 'react-native-router-flux';
 
-const contextTypes = {
-  drawer: React.PropTypes.object,
-};
+import {
+  Card,
+  CardTitle,
+  CardImage,
+  CardContent,
+  CardAction
+} from 'react-native-card-view';
 
-const propTypes = {
-  name: PropTypes.string,
-  sceneStyle: View.propTypes.style,
-  title: PropTypes.string,
-};
+export default class CardExample extends Component {
+
+  _renderTitle (title) {
+    return (
+      <View style={{flex: 1, alignItems: 'center', marginTop: 20}}>
+        <Text style={{fontSize: 20}}>{title}</Text>
+      </View>
+    )
+  }
+
+  render () {
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          {this._renderTitle('Basic')}
+          <Card>
+            <CardTitle>
+              <Text style={styles.title}>Card Title</Text>
+            </CardTitle>
+            <CardContent>
+              <Text>Content</Text>
+            </CardContent>
+            <CardAction >
+              <Button
+                style={styles.button}
+                onPress={() => {}}>
+                Button 1
+              </Button>
+              <Button
+                style={styles.button}
+                onPress={() => {}}>
+                Button 2
+              </Button>
+            </CardAction>
+          </Card>
+
+          {this._renderTitle('Fix Width = 300')}
+          <Card styles={{card: {width: 300}}}>
+            <CardTitle>
+              <Text style={styles.title}>Card Title</Text>
+            </CardTitle>
+            <CardContent>
+              <Text>Content</Text>
+            </CardContent>
+            <CardAction >
+              <Button
+                style={styles.button}
+                onPress={() => {}}>
+                Button 1
+              </Button>
+              <Button
+                style={styles.button}
+                onPress={() => {}}>
+                Button 2
+              </Button>
+            </CardAction>
+          </Card>
+
+          {this._renderTitle('Card Image + Card Title + Card Content + Card Action')}
+          <Card>
+            <CardImage>
+              <Image
+                style={{width: 300, height: 200}}
+                source={{uri: 'https://getmdl.io/assets/demos/image_card.jpg'}}
+              />
+            </CardImage>
+            <CardTitle>
+              <Text style={styles.title}>Card Title</Text>
+            </CardTitle>
+            <CardContent>
+              <Text>Content</Text>
+              <Text>Content</Text>
+              <Text>Content</Text>
+              <Text>Content</Text>
+              <Text>Content</Text>
+              <Text>Content</Text>
+            </CardContent>
+            <CardAction separator>
+              <Button
+                style={styles.button}
+                onPress={() => {}}>
+                Button 1
+              </Button>
+              <Button
+                style={styles.button}
+                styleDisabled={{color: 'red'}}
+                onPress={() => {}}>
+                Button 2
+              </Button>
+            </CardAction>
+          </Card>
+
+          {this._renderTitle('Card Image')}
+          <Card>
+            <CardImage>
+              <Image
+                style={{width: 256, height: 256}}
+                source={{uri: 'https://getmdl.io/assets/demos/image_card.jpg'}}
+              >
+                <Text style={[styles.title, {alignSelf: 'center'}]}>Beautiful Girl</Text>
+              </Image>
+            </CardImage>
+          </Card>
+
+          {this._renderTitle('Card Image')}
+          <Card>
+            <CardImage>
+              <Image
+                style={{width: 256, height: 256}}
+                source={{uri: 'https://static.pexels.com/photos/59523/pexels-photo-59523.jpeg'}}
+              />
+            </CardImage>
+          </Card>
+        </View>
+      </ScrollView>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    borderWidth: 2,
-    borderColor: 'red',
+    marginTop: 60,
+    marginBottom: 60
   },
+  title: {
+    fontSize: 38,
+    backgroundColor: 'transparent'
+  },
+  button: {
+    marginRight: 10
+  },
+  card: {
+    width: 300
+  }
 });
-
-const TabView = (props, context) => {
-  const drawer = context.drawer;
-  return (
-    <View style={[styles.container, props.sceneStyle ]}>
-      <Text>Tab {props.title}</Text>
-      {props.name === 'tab1_1' &&
-        <Button onPress={Actions.tab1_2}>next screen for tab1_1</Button>
-      }
-      {props.name === 'tab2_1' &&
-        <Button onPress={Actions.tab2_2}>next screen for tab2_1</Button>
-      }
-      <Button onPress={Actions.pop}>Back</Button>
-      <Button onPress={() => { drawer.close(); Actions.tab1(); }}>Switch to tab1</Button>
-      <Button onPress={() => { drawer.close(); Actions.tab2(); }}>Switch to tab2</Button>
-      <Button onPress={() => { drawer.close(); Actions.tab3(); }}>Switch to tab3</Button>
-      <Button onPress={() => { drawer.close(); Actions.tab4(); }}>Switch to tab4</Button>
-      <Button onPress={() => { drawer.close(); Actions.tab5(); }}>Switch to tab5</Button>
-      <Button onPress={() => { drawer.close(); Actions.echo(); }}>push new scene</Button>
-    </View>
-  );
-};
-
-TabView.contextTypes = contextTypes;
-TabView.propTypes = propTypes;
-
-export default TabView;
