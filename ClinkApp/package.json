@@ -8,10 +8,15 @@
     "bundle-android": "react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --sourcemap-output android/app/src/main/assets/index.android.map --assets-dest android/app/src/main/res/"
   },
   "dependencies": {
+    "eslint-plugin-react": "^6.2.0",
+    "eslint-plugin-react-native": "^2.0.0",
+    "install": "^0.8.1",
+    "npm": "^3.10.7",
     "react": "15.3.1",
     "react-native": "0.33.0",
     "react-native-button": "^1.7.0",
     "react-native-drawer": "^2.3.0",
+    "react-native-card-view": "0.0.3",
     "react-native-router-flux": "^3.35.0"
   }
 }
