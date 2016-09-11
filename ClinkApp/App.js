@@ -13,6 +13,9 @@ import {
     MainScreenView,
     ViewUserView,
     ViewFriendView,
+    DetailScreenViewTravis,
+    DetailScreenViewEvan,
+    DetailScreenViewElon,
 } from './frontend/pages';
 import {
     Text,
@@ -70,13 +73,16 @@ class App extends Component {
             <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
                 <Scene key="root">
                     <Scene key="login" component={LoginView} />
-                    <Scene key="tabbar" component={NavigationDrawer} initial>
+                    <Scene key="tabbar" initial>
                         <Scene
                         key="main"
                         tabs
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
+                            <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
+                            <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
+                            <Scene key="detailelon" component={DetailScreenViewElon} hideNavBar/>
                             <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial />
                             <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
                             <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
