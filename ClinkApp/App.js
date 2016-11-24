@@ -42,8 +42,11 @@ import {
 } from './components/TabIcon';
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
-        alignItems: 'center',
+    container: {
+      flex: 1,
+      backgroundColor: 'transparent',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     tabBarStyle: {
         backgroundColor: '#eee',
@@ -61,27 +64,10 @@ const reducerCreate = params => {
     };
 };
 
-// define this based on the styles/dimensions you use
-const getSceneStyle = (/* NavigationSceneRendererProps */ props, computedProps) => {
-    const style = {
-        flex: 1,
-        backgroundColor: '#fff',
-        shadowColor: null,
-        shadowOffset: null,
-        shadowOpacity: null,
-        shadowRadius: null,
-    };
-    if (computedProps.isActive) {
-        style.marginTop = computedProps.hideNavBar ? 0 : 64;
-        style.marginBottom = computedProps.hideTabBar ? 0 : 50;
-    }
-    return style;
-};
-
 class App extends Component {
     render() {
         return (
-            <Router createReducer={reducerCreate} getSceneStyle={getSceneStyle}>
+            <Router createReducer={reducerCreate}>
                 <Scene key="root">
                     <Scene key="login" component={LoginView} initial/>
                     <Scene key="tabbar" >
@@ -91,6 +77,7 @@ class App extends Component {
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
+                            <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial/>
                             <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
                             <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
                             <Scene key="detailjack" component={DetailScreenViewJack} hideNavBar/>
@@ -103,7 +90,6 @@ class App extends Component {
                             <Scene key="detailalan" component={DetailScreenViewAlan} hideNavBar/>
                             <Scene key="detailjohn" component={DetailScreenViewJohn} hideNavBar/>
                             <Scene key="detailmarissa" component={DetailScreenViewMarissa} hideNavBar/>
-                            <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial />
                             <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
                             <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
                             <Scene key="editprofile" component={EditScreenView} imgSrc="C.png" hideNavBar icon={TabIconEdit} />

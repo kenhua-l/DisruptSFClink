@@ -9,7 +9,7 @@ export const Styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#E1F5FE',
+        backgroundColor: '#20A2E8',
     },
     welcome: {
         fontSize: 20,
