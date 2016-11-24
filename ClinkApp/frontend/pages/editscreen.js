@@ -3,9 +3,12 @@ import {
     View,
     Text,
     Image,
+    StyleSheet,
     ScrollView,
     TextInput,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import Button from 'react-native-button';
 
 import {
     Card,
@@ -26,23 +29,41 @@ export default class EditScreen extends Component {
                 <Image style={{height: 150, width: 150}} source={require('../../images/profile_sillh.png')}/>
                 <View style={{ paddingTop: 25 }}>
                 </View>
-                <TextInput 
+                <TextInput
                     style={label}
                     placeholder='Name'
                 />
-                <TextInput 
+                <TextInput
                     style={label}
                     placeholder='Company'
                 />
-                <TextInput 
+                <TextInput
                     style={label}
                     placeholder='Position'
                 />
-                <TextInput 
+                <TextInput
                     style={label}
                     placeholder='Contact Number'
                 />
+                <Button style={styles.button} onPress={Actions.landing}>
+                  <Text style={styles.whiteFont}>Create</Text>
+                </Button>
             </View>
         );
     }
 }
+
+var styles = StyleSheet.create({
+  button: {
+      marginRight: 10,
+      width:200,
+      borderRadius: 50,
+      alignSelf: 'center',
+  },
+  whiteFont: {
+    fontSize: 20,
+    padding: 20,
+    backgroundColor: '#FAFAFF',
+    color: '#000'
+  },
+});

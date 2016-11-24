@@ -10,6 +10,7 @@ import {
 
 import {
     LoginView,
+    Landing,
     MainScreenView,
     ViewUserView,
     ViewFriendView,
@@ -69,7 +70,7 @@ class App extends Component {
         return (
             <Router createReducer={reducerCreate}>
                 <Scene key="root">
-                    <Scene key="login" component={LoginView} initial/>
+                    <Scene key="login" component={LoginView} hideNavBar initial/>
                     <Scene key="tabbar" >
                         <Scene
                         key="main"
@@ -77,7 +78,8 @@ class App extends Component {
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
-                            <Scene key="mainscreen" component={MainScreenView} imgSrc="C.png" hideNavBar icon={TabIconHome} initial/>
+                            <Scene key="landing" component={Landing} icon={TabIconHome} initial/>
+                            <Scene key="mainscreens" component={MainScreenView} hideNavBar icon={TabIconFriends}/>
                             <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
                             <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
                             <Scene key="detailjack" component={DetailScreenViewJack} hideNavBar/>
@@ -90,9 +92,8 @@ class App extends Component {
                             <Scene key="detailalan" component={DetailScreenViewAlan} hideNavBar/>
                             <Scene key="detailjohn" component={DetailScreenViewJohn} hideNavBar/>
                             <Scene key="detailmarissa" component={DetailScreenViewMarissa} hideNavBar/>
-                            <Scene key="viewuser" component={ViewUserView} imgSrc="C.png" hideNavBar icon={TabIconFriends} />
                             <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
-                            <Scene key="editprofile" component={EditScreenView} imgSrc="C.png" hideNavBar icon={TabIconEdit} />
+                            <Scene key="editprofile" component={EditScreenView} hideNavBar icon={TabIconEdit} />
                         </Scene>
                     </Scene>
                 </Scene>

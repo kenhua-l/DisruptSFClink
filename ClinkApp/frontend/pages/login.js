@@ -29,7 +29,7 @@ export default class LoginComponent extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={require('../../images/BackgroundColor.png')} style={styles.bg}>
-          <Image style={styles.mark} source={require('../../images/logo.png')} style={styles.logo}/>
+          <Image source={require('../../images/logo.png')} style={styles.logo}/>
           <View style={styles.signin}>
             <Button onPress={Actions.tabbar}>
               <Text style={styles.whiteFont}>Sign in</Text>

@@ -1,4 +1,5 @@
 import LoginComponent from './login';
+import LandingComponent from './landing';
 import MainScreenComponent from './mainscreen';
 import ViewUserScreenComponent from './viewuserscreen';
 import ViewFriendScreenComponent from './viewfriendscreen';
@@ -17,6 +18,7 @@ import EditScreen from './editscreen';
 import DetailScreenJohn from './viewdetailscreenJohn';
 
 export const LoginView = LoginComponent;
+export const Landing = LandingComponent;
 export const MainScreenView = MainScreenComponent;
 export const ViewUserView = ViewUserScreenComponent;
 export const ViewFriendView = ViewFriendScreenComponent;

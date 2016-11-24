@@ -17,8 +17,9 @@ const TabIconHome = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 24,
-          height: 24
+          width: 21,
+          height: 30,
+          resizeMode: 'contain'
       }} source={require('../images/home.png')} />
     </Text>
   );
@@ -28,9 +29,10 @@ const TabIconFriends = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 24,
-          height: 24
-     }} source={require('../images/friends.png')} />
+        width: 45,
+        height: 31,
+        resizeMode: 'contain'
+     }} source={require('../images/pastEvents.png')} />
     </Text>
   );
 };
@@ -39,9 +41,10 @@ const TabIconRequest = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 24,
-          height: 24
-     }} source={require('../images/request.png')} />
+        width: 42,
+        height: 32,
+        resizeMode: 'contain'
+     }} source={require('../images/friends.png')} />
     </Text>
   );
 };
@@ -50,9 +53,10 @@ const TabIconEdit = (props) => {
   return (
     <Text>
       <Image style={{
-          width: 24,
-          height: 24
-     }} source={require('../images/edit_user.png')} />
+        width: 21,
+        height: 25,
+        resizeMode: 'contain'
+     }} source={require('../images/more.png')} />
     </Text>
   );
 };
