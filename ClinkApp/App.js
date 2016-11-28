@@ -9,24 +9,24 @@ import {
 } from 'react-native-router-flux';
 
 import {
-    LoginView,
+    Login,
     Landing,
-    MainScreenView,
-    ViewUserView,
-    ViewFriendView,
-    DetailScreenViewTravis,
-    DetailScreenViewEvan,
-    DetailScreenViewElon,
-    DetailScreenViewRichard,
-    DetailScreenViewPadma,
-    DetailScreenViewMeg,
-    DetailScreenViewJackMa,
-    DetailScreenViewAlan,
-    DetailScreenViewMarissa,
-    DetailScreenViewJack,
-    DetailScreenViewKevin,
-    EditScreenView,
-    DetailScreenViewJohn
+    MainScreen,
+    User,
+    Friend,
+    DetailScreenTravis,
+    DetailScreenEvan,
+    DetailScreenElon,
+    DetailScreenRichard,
+    DetailScreenPadma,
+    DetailScreenMeg,
+    DetailScreenJackMa,
+    DetailScreenAlan,
+    DetailScreenMarissa,
+    DetailScreenJack,
+    DetailScreenKevin,
+    EditScreen,
+    DetailScreenJohn
 } from './frontend/pages';
 import {
     Text,
@@ -41,6 +41,8 @@ import {
     TabIconRequest,
     TabIconEdit,
 } from './components/TabIcon';
+import NavBar from './components/NavBar';
+import NavBarBig from './components/NavBarBig';
 
 const styles = StyleSheet.create({
     container: {
@@ -70,30 +72,31 @@ class App extends Component {
         return (
             <Router createReducer={reducerCreate}>
                 <Scene key="root">
-                    <Scene key="login" component={LoginView} hideNavBar initial/>
+                    <Scene key="login" component={Login} hideNavBar initial/>
                     <Scene key="tabbar" >
                         <Scene
                         key="main"
+                        navBar={NavBar}
                         tabs
                         tabBarStyle={styles.tabBarStyle}
                         tabBarSelectedItemStyle={styles.tabBarSelectedItemStyle}
                         >
-                            <Scene key="landing" component={Landing} icon={TabIconHome} initial/>
-                            <Scene key="mainscreens" component={MainScreenView} hideNavBar icon={TabIconFriends}/>
-                            <Scene key="detailevan" component={DetailScreenViewEvan} hideNavBar/>
-                            <Scene key="detailtravis" component={DetailScreenViewTravis} hideNavBar/>
-                            <Scene key="detailjack" component={DetailScreenViewJack} hideNavBar/>
-                            <Scene key="detailkevin" component={DetailScreenViewKevin} hideNavBar/>
-                            <Scene key="detailelon" component={DetailScreenViewElon} hideNavBar/>
-                            <Scene key="detailrichard" component={DetailScreenViewRichard} hideNavBar/>
-                            <Scene key="detailpadma" component={DetailScreenViewPadma} hideNavBar/>
-                            <Scene key="detailmeg" component={DetailScreenViewMeg} hideNavBar/>
-                            <Scene key="detailjackma" component={DetailScreenViewJackMa} hideNavBar/>
-                            <Scene key="detailalan" component={DetailScreenViewAlan} hideNavBar/>
-                            <Scene key="detailjohn" component={DetailScreenViewJohn} hideNavBar/>
-                            <Scene key="detailmarissa" component={DetailScreenViewMarissa} hideNavBar/>
-                            <Scene key="viewfriend" component={ViewFriendView} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
-                            <Scene key="editprofile" component={EditScreenView} hideNavBar icon={TabIconEdit} />
+                            <Scene navBar={NavBarBig} key="landing" component={Landing} icon={TabIconHome} initial/>
+                            <Scene navBar={NavBar} key="mainscreens" component={MainScreen} hideNavBar icon={TabIconFriends}/>
+                            <Scene navBar={NavBar} key="detailevan" component={DetailScreenEvan} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailtravis" component={DetailScreenTravis} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailjack" component={DetailScreenJack} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailkevin" component={DetailScreenKevin} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailelon" component={DetailScreenElon} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailrichard" component={DetailScreenRichard} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailpadma" component={DetailScreenPadma} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailmeg" component={DetailScreenMeg} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailjackma" component={DetailScreenJackMa} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailalan" component={DetailScreenAlan} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailjohn" component={DetailScreenJohn} hideNavBar/>
+                            <Scene navBar={NavBar} key="detailmarissa" component={DetailScreenMarissa} hideNavBar/>
+                            <Scene navBar={NavBar} key="viewfriend" component={Friend} imgSrc="C.png" hideNavBar icon={TabIconRequest} />
+                            <Scene navBar={NavBar} key="editprofile" component={EditScreen} hideNavBar icon={TabIconEdit} />
                         </Scene>
                     </Scene>
                 </Scene>
