@@ -8,7 +8,7 @@ import { AppRegistry } from 'react-native';
 
 // import Example from './Example';
 // AppRegistry.registerComponent('ClinkApp', () => Example);
-
+console.disableYellowBox = true;
 import App from './App';
 AppRegistry.registerComponent('ClinkApp', () => App);
 

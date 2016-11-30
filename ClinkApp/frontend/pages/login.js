@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   TextInput,
-  Image
+  Image,
+  StatusBar
 } from 'react-native';
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
@@ -28,10 +29,14 @@ export default class LoginComponent extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          translucent
+          backgroundColor="transparent"
+        />
         <Image source={require('../../images/BackgroundColor.png')} style={styles.bg}>
           <Image source={require('../../images/logo.png')} style={styles.logo}/>
           <View style={styles.signin}>
-            <Button onPress={Actions.tabbar}>
+            <Button onPress={Actions.main}>
               <Text style={styles.whiteFont}>Sign in</Text>
             </Button>
           </View>
@@ -55,8 +60,11 @@ var styles = StyleSheet.create({
       position: 'absolute',
       left: 0,
       top: 0,
+      bottom: 0,
+      right: 0,
       width: windowSize.width,
-      height: windowSize.height
+      height: windowSize.height + 25,
+      resizeMode: 'cover'
     },
     logo: {
       flex: 0.5,

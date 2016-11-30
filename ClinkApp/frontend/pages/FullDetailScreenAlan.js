@@ -54,73 +54,64 @@ export default class Clink extends Component {
   componentDidMount() {
   }
   onExpandModalAndOpenFullProfile() {
-    Animated.parallel([
-        Animated.timing(this.state.isExpanded, {
-            duration: 250,
-            toValue:  1
-        }),
-        Animated.timing(this.state.height, {
-            duration: 250,
-            toValue:  Dimensions.get('window').height
-        }),
-        Animated.timing(this.state.marginTop, {
-            duration: 250,
-            toValue:  0
-        }),
-        Animated.timing(this.state.borderRadius, {
-            duration: 250,
-            toValue: 0
-        })
-    ]).start(()=> {
-        Actions.pop();
-        Actions.fullDetails();
+    Animated.timing(this.state.isExpanded, {
+        duration: 250,
+        toValue:  1
+    }).start(() => {
     });
+    Animated.timing(this.state.height, {
+        duration: 250,
+        toValue:  Dimensions.get('window').height
+    }).start(() => {
+    });
+    Animated.timing(this.state.marginTop, {
+        duration: 250,
+        toValue:  0
+    }).start(() => {
+    });
+    Animated.timing(this.state.borderRadius, {
+        duration: 250,
+        toValue: 0
+    }).start();
   }
   render () {
     var AnimatedModalBox = Animated.createAnimatedComponent(ModalBox);
       return (
         <View style={styles.wrapper}>
-            <AnimatedModalBox style={{padding: 32, height: this.state.height, marginTop: this.state.marginTop,  borderRadius: this.state.borderRadius}}
-                height={500}
-                isOpen={true} swipeThreshold={100} expandSwipeThreshold={100}
-                expandSwipeLimit={Dimensions.get('window').height - 500 - StatusBar.currentHeight + 80}
-                position={"bottom"} onClosed={Actions.pop}
-                onExpanded={this.onExpandModalAndOpenFullProfile}>
+            <View style={{backgroundColor: 'white', padding: 16}}>
                 <View>
-                    <View style={{ flexDirection: 'row'}}>
-                        <Image source={require("../../images/alan.jpg")} style={{height: 100, width: 100, borderRadius: 50}}/>
-                        <View style={{height: 100, marginLeft: 16, justifyContent:'center'}}>
-                            <Text style={{fontSize: 24, fontWeight: '400', color: 'black'}}>Alan Sharp-Paul</Text>
-                            <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(0,0,0,0.65)'}}>CEO of Upguard</Text>
-                        </View>
-                    </View>
-                    <View style={{marginTop: 32, alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 64, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
                     <View style={{paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Icon name="edit" size={24} style={{color: '#858585'}}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'rgba(0,0,0,0.40)'}}>Add note</Text>
                         <Icon name="mic" size={24} style={{color: '#15B4F1', marginRight: 8}}/>
                     </View>
-                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 64, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
+                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 32, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
                     <View style={{paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Icon name="email" size={24} style={{color: '#858585'}}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>alan@upguard.com</Text>
                         <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Business</Text>
                     </View>
-                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 64, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
+                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 32, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
                     <View style={{paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Image style={{width: 24, height: 15}} source={require("../../images/flags/US.png")}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>1-(498)089-5310</Text>
                         <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Business</Text>
                     </View>
-                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 64, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
+                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 32, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
                     <View style={{paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                        <Image style={{width: 24, height: 15}} source={require("../../images/flags/GB.png")}/>
-                        <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>44-(130)276-2259</Text>
-                        <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Personal</Text>
+                        <Image style={{width: 24, height: 24}} source={require("../../images/LinkedIn.png")}/>
+                        <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>Alan Sharp-Paul</Text>
+                        <Text style={{fontSize: 14, fontWeight: '500',color: '#2AA7DC', marginRight: 8}}>Connect</Text>
+                    </View>
+                    <View style={{alignSelf: 'center', height: 0, width: Dimensions.get('window').width - 32, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
+                    <View style={{paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                        <Image style={{width: 24, height: 24}} source={require("../../images/Facebook.png")}/>
+                        <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>Alan Sharp-Paul</Text>
+                        <Text style={{fontSize: 14, fontWeight: '500',color: '#2AA7DC', marginRight: 8}}>Connect</Text>
                     </View>
 
                 </View>
-            </AnimatedModalBox>
+            </View>
         </View>
       );
   }
@@ -136,11 +127,6 @@ const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: 'transparent',
       flex: 1,
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      height: Dimensions.get('window').height,
-      width: Dimensions.get('window').width
     },
     secondRowWrapper: {
         flexDirection: 'row'

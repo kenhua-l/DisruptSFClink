@@ -33,11 +33,11 @@ const TempoCard = (props) => {
         <View style={styles.cardBorder}>
             <Card>
                 <View style={styleProfile}>
-                    <Image 
+                    <Image
                         style={styleImage}
                         source={props.imgSrc}
                     />
-                    <Image 
+                    <Image
                         style={styleSmallImage}
                         source={props.coySrc}
                     />

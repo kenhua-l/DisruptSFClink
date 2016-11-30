@@ -32,7 +32,7 @@ export default class NavBar extends React.Component {
             return selected.component.renderNavigationBar({...this.props,...selected});
         }
         if (state.hideNavBar || child.hideNavBar || selected.hideNavBar){
-            console.log(`SKIPPING renderHeaderBig because ${child.key} hideNavBar === true`);
+            console.log(`SKIPPING renderHeader because ${child.key} hideNavBar === true`);
             return null;
         }
 
@@ -58,20 +58,30 @@ export default class NavBar extends React.Component {
     }
 
     _renderBackButton() {
+        const drawer = this.context.drawer;
         const state = this.props.navigationState;
+        const childState = state.children[state.index];
+        let buttonIcon = childState.backbuttonIconStyle || state.backbuttonIconStyle || this.props.backbuttonIconStyle || 'arrow-back';
+        let onPress = Actions.pop;
+
+        if (state.index === 0) {
+            if (!!drawer && typeof drawer.toggle === 'function') {
+                buttonIcon = state.drawerImage || 'menu';
+                onPress = drawer.toggle;
+            } else {
+                return null;
+            }
+        }
+
+        let text = childState.backTitle ? <Text style={[styles.barBackButtonText, this.props.backButtonTextStyle, state.backButtonTextStyle, childState.backButtonTextStyle]}>
+            {childState.backTitle}
+        </Text> : null;
+
         return (
-            <View style={[styles.leftButton, state.leftButtonStyle]}>
-                <TouchableOpacity style={{position: 'absolute', left: -80, top: 0, bottom: 0, justifyContent: 'center'}} onPress={Actions.pop}>
-                    <Image style={{height: 48, resizeMode: 'contain'}}source={require('../images/back.png')}/>
-                </TouchableOpacity>
-                <View style={{height: 112, alignItems: 'center', flexDirection: 'row'}}>
-                    <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
-                    <View style={{height: 64, marginLeft: 16, justifyContent:'center'}}>
-                        <Text style={{fontSize: 24, fontWeight: '400', color: 'white'}}>Alan Sharp-Paul</Text>
-                        <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(255,255,255,0.65)'}}>CEO of Upguard</Text>
-                    </View>
-                </View>
-            </View>
+            <TouchableOpacity style={[styles.backButton, state.leftButtonStyle]} onPress={onPress}>
+                <Icon size={24} name={buttonIcon} style={[styles.backbuttonIconStyle, this.props.leftButtonIconStyle, state.barButtonIconStyle, state.leftButtonIconStyle, childState.leftButtonIconStyle]}/>
+                {text}
+            </TouchableOpacity>
         );
     }
 
@@ -93,7 +103,19 @@ export default class NavBar extends React.Component {
         // }
         const state = this.props.navigationState;
         return (
-            <View/>
+            <TouchableOpacity style={[styles.rightButton, state.rightButtonStyle]}>
+                <View>
+                    <Text style={styles.topRight}>
+                    Total Clinkers
+                    </Text>
+                    <Text style={styles.bottomRight}>
+                    45 persons
+                    </Text>
+                </View>
+                <View style={styles.chevWrapper}>
+                    <Image source={require("../images/forward.png")} style={styles.rightChevron}/>
+                </View>
+            </TouchableOpacity>
         );
     }
 
@@ -115,16 +137,12 @@ export default class NavBar extends React.Component {
         const state = this.props.navigationState;
         return (
             <View style={[styles.leftButton, state.leftButtonStyle]}>
-                <TouchableOpacity style={{position: 'absolute', left: -80, top: 0, bottom: 0, justifyContent: 'center'}} onPress={Actions.pop}>
-                    <Image style={{height: 48, resizeMode: 'contain'}}source={require('../images/back.png')}/>
-                </TouchableOpacity>
-                <View style={{height: 112, alignItems: 'center', flexDirection: 'row'}}>
-                    <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
-                    <View style={{height: 64, marginLeft: 16, justifyContent:'center'}}>
-                        <Text style={{fontSize: 24, fontWeight: '400', color: 'white'}}>Alan Sharp-Paul</Text>
-                        <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(255,255,255,0.65)'}}>CEO of Upguard</Text>
-                    </View>
-                </View>
+                <Text style={styles.topLeft}>
+                You are at
+                </Text>
+                <Text style={styles.bottomLeft}>
+                TechCrunch SF
+                </Text>
             </View>
         );
     }
@@ -133,28 +151,7 @@ export default class NavBar extends React.Component {
         const title = childState.renderTitle ?
             childState.renderTitle() : this.props.getTitle ? this.props.getTitle(childState) : childState.title;
         return (
-          <View key={childState.key} style={[styles.title, this.props.titleStyle, this.props.navigationState.titleStyle, childState.titleStyle]}>
-            <Animated.Text
-                style={[
-          styles.titleText, this.props.titleTextStyle, this.props.navigationState.titleTextStyle, childState.titleTextStyle,
-          {
-            opacity: this.props.position.interpolate({
-              inputRange: [index - 1, index, index + 1],
-              outputRange: [0, 1, 0],
-            }),
-            left: this.props.position.interpolate({
-              inputRange: [index - 1, index + 1],
-              outputRange: [200, -200],
-            }),
-            right: this.props.position.interpolate({
-              inputRange: [index - 1, index + 1],
-              outputRange: [-200, 200],
-            }),
-          },
-        ]}>
-                {title}
-            </Animated.Text>
-          </View>
+            <View/>
         );
     }
 
@@ -242,7 +239,11 @@ const styles = StyleSheet.create({
     leftButton: {
         height: 112,
         marginTop: StatusBar.currentHeight,
-        paddingLeft: 72,
+        paddingTop: 16,
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingBottom: 16,
+        justifyContent: 'center',
     },
     barRightButtonText: {
         color: 'rgba(255, 255, 255, 1)',

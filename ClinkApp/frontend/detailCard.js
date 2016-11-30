@@ -45,7 +45,7 @@ export class DetailCard extends React.Component {
         const props = this.props;
     return (
         <ScrollView>
-        <View style={cardBorder}>
+        <View>
         <Card>
             <View style={styleProfile}>
                 <Image 
