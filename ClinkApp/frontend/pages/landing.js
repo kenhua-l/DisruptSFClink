@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 16
+        padding: 16,
+        elevation: 2,
     },
     blueButton: {
         width: (Dimensions.get('window').width - 48)/2,
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         alignItems: 'center',
         justifyContent: 'center',
+        elevation: 2,
     },
 
     blueButtonText: {

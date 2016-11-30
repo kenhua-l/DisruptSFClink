@@ -6,6 +6,7 @@ import {
     Reducer,
     Router,
     Scene,
+    Actions,
 } from 'react-native-router-flux';
 
 import {
@@ -29,12 +30,17 @@ import {
     EditScreen,
     DetailScreenJohn,
     FullDetailScreenAlan,
+    EventPeopleScreen
 } from './frontend/pages';
 import {
     Text,
+    View,
+    Image,
+    TouchableOpacity,
     StyleSheet,
+    StatusBar
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import NavigationDrawer from './components/NavigationDrawer';
 import TabView from './components/TabView';
 import {
@@ -62,6 +68,27 @@ const styles = StyleSheet.create({
     tabBarSelectedItemStyle: {
         backgroundColor: '#ddd',
     },
+    rightButton: {
+        position: 'absolute',
+        top: 0,
+        right:16,
+        height: 56,
+        marginTop: StatusBar.currentHeight,
+        paddingTop: 16,
+        paddingLeft: 16,
+        paddingBottom: 16,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+    },
+    clinkButton: {
+        height: 32,
+        width: 32,
+        borderRadius: 16,
+        elevation: 4,
+        backgroundColor: '#48D2A0',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
 
 const reducerCreate = params => {
@@ -73,6 +100,15 @@ const reducerCreate = params => {
 };
 
 class App extends Component {
+    renderClinkButton() {
+        return (
+            <View style={styles.rightButton}>
+                <TouchableOpacity style={styles.clinkButton} onPress={Actions.clink}>
+                    <Icon name="tap-and-play" size={20} style={{color: 'white'}}/>
+                </TouchableOpacity>
+            </View>
+        );
+    }
     render() {
         return (
             <Router createReducer={reducerCreate}>
@@ -81,11 +117,11 @@ class App extends Component {
                         <Scene key="login" component={Login} hideNavBar initial/>
                         <Scene key="main" navBar={NavBar} component={Home} tabs={true} barTintColor={'#ffffff'} tintColor={'#15B4F1'} inactiveTintColor={'#000000'}>
                             <Scene navBar={NavBarHome} title="Home" key="landing" component={Landing} icon={'home'} sceneStyle={{paddingTop: 136}} initial/>
-                            <Scene key="mainscreens" title="Past Events" component={MainScreen} hideNavBar icon={'event-note'}/>
-                            <Scene key="viewfriend" title="Your Clinks" component={Friend} hideNavBar icon={'people'} />
-                            <Scene key="editprofile" title="More" component={EditScreen} hideNavBar icon={'more-horiz'} />
+                            <Scene navBar={NavBar} key="viewfriend" title="Your Clinks" component={Friend} hideNavBar={false} icon={'people'} sceneStyle={{paddingTop: 80}}/>
+                            <Scene navBar={NavBar} key="editprofile" title="Your Profile" component={EditScreen} hideNavBar icon={'more-horiz'} hideNavBar={false} sceneStyle={{paddingTop: 80}} />
                         </Scene>
                         <Scene animation='fade' hideNavBar={false} navBar={NavBarBig} key="fullDetails" component={FullDetailScreenAlan} sceneStyle={{paddingTop: 136}} />
+                        <Scene hideNavBar={false} navBar={NavBar} title="TechCrunch SF" key="eventPeople" component={EventPeopleScreen} sceneStyle={{paddingTop: 80}} renderRightButton={this.renderClinkButton}/>
                         <Scene key="detailtravis" component={DetailScreenTravis} hideNavBar/>
                         <Scene key="detailjack" component={DetailScreenJack} hideNavBar/>
                         <Scene key="detailkevin" component={DetailScreenKevin} hideNavBar/>
@@ -106,4 +142,5 @@ class App extends Component {
         );
     }
 }
+
 export default App;

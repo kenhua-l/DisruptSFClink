@@ -46,8 +46,7 @@ export default class Clink extends Component {
       height: new Animated.Value(Dimensions.get('window').height - 80),
       marginTop: new Animated.Value(Dimensions.get('window').height - 500),
       borderRadius: new Animated.Value(8),
-      clinkedAnimate: new Animated.Value(0),
-      isExpanded: new Animated.Value(0)
+      clinkedAnimate: new Animated.Value(0)
     };
     this.onExpandModalAndOpenFullProfile = this.onExpandModalAndOpenFullProfile.bind(this);
   }
@@ -55,22 +54,14 @@ export default class Clink extends Component {
   }
   onExpandModalAndOpenFullProfile() {
     Animated.parallel([
-        Animated.timing(this.state.isExpanded, {
-            duration: 250,
-            toValue:  1
-        }),
         Animated.timing(this.state.height, {
             duration: 250,
             toValue:  Dimensions.get('window').height
         }),
         Animated.timing(this.state.marginTop, {
             duration: 250,
-            toValue:  0
+            toValue: 24
         }),
-        Animated.timing(this.state.borderRadius, {
-            duration: 250,
-            toValue: 0
-        })
     ]).start(()=> {
         Actions.pop();
         Actions.fullDetails();

@@ -41,4 +41,7 @@ export const DetailScreenJohn = DetailScreenJohnComponent;
 import ClinkComponent from './Clink';
 export const Clink = ClinkComponent;
 
+import EventPeopleComponent from './EventPeople';
+export const EventPeopleScreen = EventPeopleComponent;
+
 export const FullDetailScreenAlan = FullDetailScreenAlanComponent;

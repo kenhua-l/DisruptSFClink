@@ -120,7 +120,7 @@ export default class Clink extends Component {
                 }
                 {(this.state.clinkFound === 1) &&
                   <View style={{ alignItems: 'center', justifyContent: 'center'}}>
-                    <Text style={styles.header}>Alan Robinson</Text>
+                    <Text style={styles.header}>Alan Sharp-Paul</Text>
                     {(this.state.clinkState !== 'find') ?
                     <Text style={styles.subheader}>CLINKED</Text>:
                     <Text style={styles.subheader}>{this.state.clinkFound} FOUND</Text>

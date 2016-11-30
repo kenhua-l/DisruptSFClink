@@ -53,7 +53,7 @@ export default class Clink extends Component {
         <ScrollView style={{flex:1 }}>
           <TouchableWithoutFeedback onPress={Actions.details}>
             <View style={styles.wrapper}>
-              <Image style={{ width: Dimensions.get('window').width, resizeMode: 'contain'}} source={require("../../images/YourClinks.png")}/>
+              <Image style={{ width: Dimensions.get('window').width -16 , resizeMode: 'contain'}} source={require("../../images/Contacts.png")}/>
             </View>
           </TouchableWithoutFeedback>
         </ScrollView>
@@ -65,10 +65,11 @@ const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: 'white',
       elevation: 4,
-      marginTop: 16,
+      marginRight: 12,
+      marginTop: 8,
       borderRadius: 4,
       flex: 1,
-      height: Dimensions.get('window').height + 16 ,
+      height: Dimensions.get('window').height - 20 ,
       justifyContent: 'center',
     },
 });

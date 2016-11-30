@@ -103,7 +103,7 @@ export default class NavBar extends React.Component {
         // }
         const state = this.props.navigationState;
         return (
-            <TouchableOpacity style={[styles.rightButton, state.rightButtonStyle]}>
+            <TouchableOpacity style={[styles.rightButton, state.rightButtonStyle]} onPress={Actions.eventPeople}>
                 <View>
                     <Text style={styles.topRight}>
                     Total Clinkers

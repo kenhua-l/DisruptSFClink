@@ -61,15 +61,16 @@ export default class NavBar extends React.Component {
         const state = this.props.navigationState;
         return (
             <View style={[styles.leftButton, state.leftButtonStyle]}>
-                <TouchableOpacity style={{position: 'absolute', left: -80, top: 0, bottom: 0, justifyContent: 'center'}} onPress={Actions.pop}>
-                    <Image style={{height: 48, resizeMode: 'contain'}}source={require('../images/back.png')}/>
+                <TouchableOpacity style={{position: 'absolute', left: -72, top: 0, bottom: 0, justifyContent: 'center'}} onPress={Actions.pop}>
+                    <Image style={{height: 40, resizeMode: 'contain'}}source={require('../images/back.png')}/>
                 </TouchableOpacity>
                 <View style={{height: 112, alignItems: 'center', flexDirection: 'row'}}>
-                    <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
-                    <View style={{height: 64, marginLeft: 16, justifyContent:'center'}}>
+                    
+                    <View style={{height: 64, marginRight: 16, justifyContent:'center'}}>
                         <Text style={{fontSize: 24, fontWeight: '400', color: 'white'}}>Alan Sharp-Paul</Text>
                         <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(255,255,255,0.65)'}}>CEO of Upguard</Text>
                     </View>
+                    
                 </View>
             </View>
         );
@@ -93,7 +94,9 @@ export default class NavBar extends React.Component {
         // }
         const state = this.props.navigationState;
         return (
-            <View/>
+            <View style={[styles.rightButton, state.rightButtonStyle]}>
+                <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
+            </View>
         );
     }
 
@@ -119,11 +122,11 @@ export default class NavBar extends React.Component {
                     <Image style={{height: 48, resizeMode: 'contain'}}source={require('../images/back.png')}/>
                 </TouchableOpacity>
                 <View style={{height: 112, alignItems: 'center', flexDirection: 'row'}}>
-                    <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
                     <View style={{height: 64, marginLeft: 16, justifyContent:'center'}}>
                         <Text style={{fontSize: 24, fontWeight: '400', color: 'white'}}>Alan Sharp-Paul</Text>
                         <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(255,255,255,0.65)'}}>CEO of Upguard</Text>
                     </View>
+                    <Image source={require("../images/alan.jpg")} style={{height: 64, width: 64, borderRadius: 40}}/>
                 </View>
             </View>
         );
@@ -230,12 +233,7 @@ const styles = StyleSheet.create({
         flex: 1,
         top: StatusBar.currentHeight + 16,
         right: 16,
-        backgroundColor: 'rgba(24, 92, 164, 0.14)',
         borderRadius: 4,
-        paddingTop: 16,
-        paddingLeft: 24 ,
-        paddingBottom: 16,
-        paddingRight: 16,
         alignItems: 'flex-start',
         justifyContent: 'center',
     },
