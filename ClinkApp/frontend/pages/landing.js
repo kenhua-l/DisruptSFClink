@@ -40,13 +40,13 @@ export default class LandingComponent extends Component {
                     <Image style={styles.clinkImg} source={require('../../images/clink_icon.png')}/>
             </TouchableOpacity>
             <View style={styles.secondRowWrapper}>
-                <TouchableOpacity style={styles.blueButton} onPress={Actions.detailevan}>
+                <TouchableOpacity style={styles.blueButton} onPress={Actions.eventPeople}>
                         <Image style={styles.blueButtonImg} source={require('../../images/search_icon.png')}/>
                         <Text style={styles.blueButtonText}>
                             Search
                         </Text>
                 </TouchableOpacity>
-                 <TouchableOpacity style={styles.blueButton} onPress={Actions.detailevan}>
+                 <TouchableOpacity style={styles.blueButton} onPress={Actions.fullDetails}>
                         <Image style={styles.blueButtonImg} source={require('../../images/note_icon.png')}/>
                         <Text style={styles.blueButtonText}>
                             Notes

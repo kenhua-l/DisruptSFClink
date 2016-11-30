@@ -10,7 +10,8 @@ import {
     Dimensions,
     TouchableOpacity,
     StatusBar,
-    TextInput
+    TextInput,
+    Linking
 } from 'react-native';
 
 import Button from 'react-native-button';
@@ -75,50 +76,65 @@ export default class Clink extends Component {
         toValue: 0
     }).start();
   }
+  email() {
+    Linking.openURL("mailto:alan@upguard.com").catch(err => console.error('An error occurred', err));
+  }
+  call1() {
+    Linking.openURL("tel:+14980895310").catch(err => console.error('An error occurred', err));
+  }
+  call2() {
+    Linking.openURL("tel:+441302762259").catch(err => console.error('An error occurred', err));
+  }
+  ln() {
+    Linking.openURL("https://www.linkedin.com/in/ncnlinh").catch(err => console.error('An error occurred', err));
+  }
+  fb() {
+    Linking.openURL("https://facebook.com/ncnlinh").catch(err => console.error('An error occurred', err));
+  }
   render () {
     var AnimatedModalBox = Animated.createAnimatedComponent(ModalBox);
       return (
         <ScrollView style={styles.wrapper}>
-            <View style={{flex: 1, backgroundColor: '#eee', padding:16}}>
-                <View style={{backgroundColor: 'white', padding: 16, elevation: 2}}>
-                    <View style={{paddingTop: 8, paddingBottom: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{flex: 1, backgroundColor: '#eee', padding:8}}>
+                <View style={{backgroundColor: 'white', padding: 16, elevation: 2, borderRadius: 2}}>
+                    <View style={{paddingTop: 0, paddingBottom: 0, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Icon name="edit" size={24} style={{color: '#858585'}}/>
                         <TextInput style={{underlineColorAndroid:'rgba(0,0,0,0.40)', flex: 1, marginLeft: 16, marginRight: 16, paddingTop: 8, paddingBottom: 8, fontSize: 16, placeholderTextColor: 'rgba(0,0,0,0.40)', color:'black'}} placeholder="Add note"></TextInput>
                         <Icon name="mic" size={24} style={{color: '#15B4F1', marginRight: 8}}/>
                     </View>
                 </View>
-                <View style={{backgroundColor: 'white', marginTop: 16, padding: 16, elevation: 2}}>
-                    <View style={{paddingTop: 16, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                <View style={{backgroundColor: 'white', marginTop: 8, paddingTop:16, padding: 16, elevation: 2, borderRadius: 2}}>
+                    <TouchableOpacity onPress={this.email} style={{paddingTop: 16, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Icon name="email" size={24} style={{color: '#858585'}}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>alan@upguard.com</Text>
                         <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Business</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{alignSelf: 'center', height: 0, marginLeft: 56, width: Dimensions.get('window').width - 80, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
-                    <View style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={this.call1} style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Image style={{width: 24, height: 15}} source={require("../../images/flags/US.png")}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>1-(498)089-5310</Text>
                         <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Business</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{alignSelf: 'center', height: 0, marginLeft: 56, width: Dimensions.get('window').width - 80, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
-                    <View style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={this.call2} style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Image style={{width: 24, height: 15}} source={require("../../images/flags/GB.png")}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>44-(130)276-2259</Text>
                         <Text style={{fontSize: 12, color: '#858585)', marginRight: 8}}>Personal</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{alignSelf: 'center', height: 0, marginLeft: 56, width: Dimensions.get('window').width - 80, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
-                    <View style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={this.ln} style={{paddingTop: 24, paddingBottom: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Image style={{width: 24, height: 24}} source={require("../../images/LinkedIn.png")}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>Alan Sharp-Paul</Text>
                         <Text style={{fontSize: 14, fontWeight: '500',color: '#2AA7DC', marginRight: 8}}>Connect</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={{alignSelf: 'center', height: 0, marginLeft: 56, width: Dimensions.get('window').width - 80, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
-                    <View style={{paddingTop: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={this.fb} style={{paddingTop: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Image style={{width: 24, height: 24}} source={require("../../images/Facebook.png")}/>
                         <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>Alan Sharp-Paul</Text>
                         <Text style={{fontSize: 14, fontWeight: '500',color: '#2AA7DC', marginRight: 8}}>Connect</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={{backgroundColor: 'white', marginTop: 16, padding: 16, elevation: 2}}>
+                <View style={{backgroundColor: 'white', marginTop: 8, padding: 16, elevation: 2, borderRadius: 2}}>
                     <Text style={{flex: 1, fontWeight: '500', fontSize: 14, color: '#2AA7DC', marginBottom: 8}}>Recent</Text>
                     <View style={{marginLeft: 8, paddingTop: 16, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                         <Icon name="email" size={24} style={{color: '#858585'}}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Animated, Dimensions, PixelRatio, Image, StyleSheet, Text, TouchableOpacity, View, StatusBar} from 'react-native';
+import {Animated, Dimensions, PixelRatio, Image, StyleSheet, Text, TouchableOpacity, View, StatusBar, ProgressBarAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Actions} from 'react-native-router-flux';
 
@@ -7,8 +7,12 @@ export default class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgWidth: null
+            imgWidth: null,
+            loading: true
         };
+    }
+    componentDidMount() {
+        setTimeout(()=>{this.setState({loading: false})}, 2000);
     }
     componentWillMount(){
         const state = this.props.navigationState;
@@ -103,7 +107,12 @@ export default class NavBar extends React.Component {
         // }
         const state = this.props.navigationState;
         return (
-            <TouchableOpacity style={[styles.rightButton, state.rightButtonStyle]} onPress={Actions.eventPeople}>
+            <View style={[styles.rightButton, state.rightButtonStyle]}>
+            {this.state.loading &&
+                <ProgressBarAndroid styleAttr="Inverse" style={{height: 24, width: 24, color: 'white'}}/>
+                }
+            {!this.state.loading &&
+            <TouchableOpacity style={styles.rightright} onPress={Actions.eventPeople}>
                 <View>
                     <Text style={styles.topRight}>
                     Total Clinkers
@@ -116,6 +125,8 @@ export default class NavBar extends React.Component {
                     <Image source={require("../images/forward.png")} style={styles.rightChevron}/>
                 </View>
             </TouchableOpacity>
+            }
+            </View>
         );
     }
 
@@ -137,12 +148,26 @@ export default class NavBar extends React.Component {
         const state = this.props.navigationState;
         return (
             <View style={[styles.leftButton, state.leftButtonStyle]}>
+                {this.state.loading &&
+                 <View>
+                    <Text style={styles.toptop}>
+                    You are not at an event.
+                    </Text>
+                    <Text style={styles.toptop}>
+                    Finding nearby events.
+                    </Text>
+                </View>
+                }
+                {!this.state.loading &&
+                    <View>
                 <Text style={styles.topLeft}>
                 You are at
                 </Text>
                 <Text style={styles.bottomLeft}>
                 TechCrunch SF
                 </Text>
+                </View>
+                }
             </View>
         );
     }
@@ -222,19 +247,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     rightButton: {
-        flexDirection: 'row',
         position: 'absolute',
         flex: 1,
         top: StatusBar.currentHeight + 16,
         right: 16,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+    },
+    rightright: {
+        flexDirection: 'row',
+        flex: 1,
         backgroundColor: 'rgba(24, 92, 164, 0.14)',
         borderRadius: 4,
         paddingTop: 16,
         paddingLeft: 24 ,
         paddingBottom: 16,
         paddingRight: 16,
-        alignItems: 'flex-start',
-        justifyContent: 'center',
     },
     leftButton: {
         height: 112,
@@ -273,6 +301,10 @@ const styles = StyleSheet.create({
         color: 'rgba(255, 255, 255, 0.8)',
         fontSize: 12,
         paddingBottom: 4,
+    },
+    toptop: {
+        color: 'rgba(255, 255, 255, 0.8)',
+        fontSize: 16,
     },
     bottomLeft: {
         color: 'rgba(255, 255, 255, 1)',

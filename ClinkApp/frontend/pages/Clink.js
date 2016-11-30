@@ -67,7 +67,7 @@ export default class Clink extends Component {
     });
     setTimeout(() => {
       this.setState({clinkFound: this.state.clinkFound + 1});
-    }, 0);
+    }, 20000);
   }
   onCloseModal() { // you may want to do something like this if you have a button to dismiss the modal
     Animated.timing(this.state.offset, {

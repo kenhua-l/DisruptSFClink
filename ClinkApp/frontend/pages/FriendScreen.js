@@ -64,11 +64,8 @@ export default class Clink extends Component {
 const styles = StyleSheet.create({
     wrapper: {
       backgroundColor: 'white',
-      elevation: 4,
-      marginTop: 16,
-      borderRadius: 4,
       flex: 1,
-      height: Dimensions.get('window').height + 16 ,
+      height: Dimensions.get('window').height - 120 ,
       justifyContent: 'center',
     },
 });

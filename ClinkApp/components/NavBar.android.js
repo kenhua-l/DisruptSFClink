@@ -78,10 +78,11 @@ export default class NavBar extends React.Component {
         </Text> : null;
 
         return (
-            <TouchableOpacity style={[styles.backButton, state.leftButtonStyle]} onPress={onPress}>
-                <Icon size={24} name={buttonIcon} style={[styles.backbuttonIconStyle, this.props.leftButtonIconStyle, state.barButtonIconStyle, state.leftButtonIconStyle, childState.leftButtonIconStyle]}/>
-                {text}
-            </TouchableOpacity>
+            <View style={[styles.leftButton, state.leftButtonStyle]}>
+                <TouchableOpacity style={{position: 'absolute', left: -72, top: 0, bottom: 0, justifyContent: 'center'}} onPress={Actions.pop}>
+                    <Image style={{height: 40, resizeMode: 'contain'}}source={require('../images/back.png')}/>
+                </TouchableOpacity>
+            </View>
         );
     }
 
