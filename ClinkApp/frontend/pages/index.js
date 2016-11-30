@@ -16,7 +16,7 @@ import DetailScreenAlanComponent from './DetailScreenAlan';
 import DetailScreenKevinComponent from './DetailScreenKevin';
 import EditScreenComponent from './EditScreen';
 import DetailScreenJohnComponent from './DetailScreenJohn';
-import FullDetailScreenAlanComponent from './FullDetailScreenAlan';
+
 
 export const Login = LoginComponent;
 export const Landing = LandingComponent;
@@ -44,4 +44,8 @@ export const Clink = ClinkComponent;
 import EventPeopleComponent from './EventPeople';
 export const EventPeopleScreen = EventPeopleComponent;
 
+import FullDetailScreenAlanComponent from './FullDetailScreenAlan';
 export const FullDetailScreenAlan = FullDetailScreenAlanComponent;
+
+import NoDetailScreenAlanComponent from './NoDetailScreenAlan';
+export const NoDetailScreenAlan = NoDetailScreenAlanComponent;

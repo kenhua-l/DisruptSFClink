@@ -51,7 +51,7 @@ export default class Clink extends Component {
   render () {
       return (
         <ScrollView style={{flex:1 }}>
-          <TouchableWithoutFeedback onPress={Actions.details}>
+          <TouchableWithoutFeedback onPress={Actions.nodetails}>
             <View style={styles.wrapper}>
               <Image style={{ width: Dimensions.get('window').width -16 , resizeMode: 'contain'}} source={require("../../images/Contacts.png")}/>
             </View>

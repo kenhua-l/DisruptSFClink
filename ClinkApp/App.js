@@ -30,6 +30,7 @@ import {
     EditScreen,
     DetailScreenJohn,
     FullDetailScreenAlan,
+    NoDetailScreenAlan,
     EventPeopleScreen
 } from './frontend/pages';
 import {
@@ -136,6 +137,7 @@ class App extends Component {
                     </Scene>
                     <Scene key="clink" component={Clink} hideNavBar/>
                     <Scene key="details" component={DetailScreenAlan} hideNavBar/>
+                    <Scene key="nodetails" component={NoDetailScreenAlan} hideNavBar/>
 
                 </Scene>
             </Router>
