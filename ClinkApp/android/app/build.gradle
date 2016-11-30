@@ -98,6 +98,14 @@ android {
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
     }
+    signingConfigs {
+        release {
+            storeFile file("my-release-key.keystore")
+            storePassword "clinknvc"
+            keyAlias "my-key-alias"
+            keyPassword "clinknvc"
+        }
+    }
     splits {
         abi {
             reset()
@@ -110,6 +118,7 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
