@@ -19,6 +19,7 @@
     "react-native-card-view": "0.0.3",
     "react-native-drawer": "^2.3.0",
     "react-native-hyperlink": "0.0.5",
+    "react-native-onesignal": "^1.2.3",
     "react-native-router-flux": "^3.35.0",
     "react-native-vector-icons": "^2.1.0"
   }

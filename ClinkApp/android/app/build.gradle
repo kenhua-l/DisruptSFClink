@@ -84,7 +84,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.clinkapp"
@@ -95,6 +95,9 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [manifestApplicationId: "${applicationId}",
+                                onesignal_app_id: "73aeaf3c-2feb-4461-863c-153bd62c0afa",
+                                onesignal_google_project_number: "709727689098"]
         renderscriptTargetApi 20
         renderscriptSupportModeEnabled true
     }
@@ -141,6 +144,7 @@ repositories {
 dependencies {
     compile project(':react-native-vector-icons')
     compile project(':react-native-blur')
+    compile project(':react-native-onesignal')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
