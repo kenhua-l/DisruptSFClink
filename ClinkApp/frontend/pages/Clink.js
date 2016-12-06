@@ -12,6 +12,8 @@ import {
     StatusBar
 } from 'react-native';
 
+import { connect } from 'react-redux';
+
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
 
@@ -35,7 +37,7 @@ const styleImage = { height: 100, width: 100, borderRadius: 50, padding: 5};
 const styleSmallImage = {height:45, width:45, borderRadius: 25, zIndex:5, position:'absolute', marginLeft: -35, marginTop:55};
 const styleProfile = {backgroundColor: '#E1F5FE', alignSelf:'stretch', flexDirection: 'row'};
 
-export default class Clink extends Component {
+class Clink extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,7 +122,7 @@ export default class Clink extends Component {
                 }
                 {(this.state.clinkFound === 1) &&
                   <View style={{ alignItems: 'center', justifyContent: 'center'}}>
-                    <Text style={styles.header}>Alan Sharp-Paul</Text>
+                    <Text style={styles.header}>{this.state.user === 'individual' ? "Alan Sharp-Paul" : "Alexey Matyushkin"}</Text>
                     {(this.state.clinkState !== 'find') ?
                     <Text style={styles.subheader}>CLINKED</Text>:
                     <Text style={styles.subheader}>{this.state.clinkFound} FOUND</Text>
@@ -132,7 +134,7 @@ export default class Clink extends Component {
                       <Pulse color='#15B4F1' numPulses={5} diameter={300} top={0} speed={40} duration={1500}/>
                     }
                     {(this.state.clinkFound === 1) &&
-                      <Image source={require('../../images/alan.jpg')} style={{height: 160, width: 160, borderRadius: 80}}/>
+                      <Image source={this.state.user === 'individual' ? require('../../images/alan.jpg') : require('../../images/jack.png')} style={{height: 160, width: 160, borderRadius: 80}}/>
                     }
                     {(this.state.clinkState === 'clinking') &&
                       <View style={{width: 180, marginLeft: -10, position: 'absolute', alignItems: 'center', justifyContent: 'center', top: 0, left: 0, bottom: 0, right: 0}}>
@@ -149,7 +151,7 @@ export default class Clink extends Component {
                   {(this.state.clinkState === 'find' && this.state.clinkFound === 1) &&
                     <TouchableOpacity onPress={this.onClink} style={{width: 200, alignItems: 'center', justifyContent: 'center', paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, backgroundColor: '#48D2A0', borderRadius: 4}}>
                       <Text style={{color: 'white', fontWeight: '500'}}>
-                        CLINK ALAN
+                        CLINK {this.state.user === 'individual' ? "ALAN" : "ALEXEY"}
                       </Text>
                     </TouchableOpacity>
                   }
@@ -255,3 +257,7 @@ const styles = StyleSheet.create({
       fontWeight: "200",
     }
 });
+export default connect(state => ({
+    state: state.app,
+  })
+)(Clink);

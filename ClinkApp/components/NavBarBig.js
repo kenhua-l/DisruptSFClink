@@ -289,7 +289,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
     },
     rightChevron: {
-        color: 'rgba(255, 255, 255, 0.45)',
         height: 14,
         marginTop: 24,
     }

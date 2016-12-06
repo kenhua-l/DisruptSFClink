@@ -3,7 +3,9 @@ import {Animated, Dimensions, PixelRatio, Image, StyleSheet, Text, TouchableOpac
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Actions} from 'react-native-router-flux';
 
-export default class NavBar extends React.Component {
+import { connect } from 'react-redux';
+
+class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,6 +25,7 @@ export default class NavBar extends React.Component {
 
     render() {
         const state = this.props.navigationState;
+        console.log(state)
         const child = state.children[state.index];
         let selected = state.children[state.index];
         while (selected.hasOwnProperty('children')) {
@@ -46,7 +49,8 @@ export default class NavBar extends React.Component {
                   translucent
                   backgroundColor="transparent"
                 />
-                <Image source={require('../images/bg.png')} style={[styles.bgImg, {width: this.state.imgWidth}]}/>
+                {state.name === 'editprofile' && this.props.state.user === 'enterprise' ? <Image source={require('../images/bg_black.png')} style={[styles.bgImg, {width: this.state.imgWidth}]}/>
+                : <Image source={require('../images/bg.png')} style={[styles.bgImg, {width: this.state.imgWidth}]}/>}
                 <Animated.View
                     style={[styles.header, this.props.navigationBarStyle, state.navigationBarStyle, selected.navigationBarStyle]}>
                     {state.children.map(this._renderTitle, this)}
@@ -267,3 +271,7 @@ const styles = StyleSheet.create({
         color: 'rgba(255, 255, 255, 1)',
     }
 });
+
+export default connect(state => ({
+    state: state.app,
+}))(NavBar)

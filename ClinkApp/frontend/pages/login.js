@@ -5,10 +5,12 @@ import {
   StyleSheet,
   TextInput,
   Image,
-  StatusBar
+  StatusBar,
+  TouchableWithoutFeedback
 } from 'react-native';
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
 var Dimensions = require('Dimensions');
 var windowSize = Dimensions.get('window');
@@ -17,13 +19,29 @@ import {
   Styles
 } from '../styles';
 
-export default class LoginComponent extends React.Component {
+class LoginComponent extends React.Component {
   constructor(props) {
     super();
     this.state = {
       username: 'username',
       password: 'pass'
     };
+  }
+
+  loginEntreprise() {
+    this.props.dispatch({
+      type: "APP_LOGIN",
+      user: "enterprise"
+    });
+    Actions.main();
+  }
+
+  loginIndividual() {
+    this.props.dispatch({
+      type: "APP_LOGIN",
+      user: "individual"
+    });
+    Actions.main();
   }
 
   render() {
@@ -34,9 +52,11 @@ export default class LoginComponent extends React.Component {
           backgroundColor="transparent"
         />
         <Image source={require('../../images/BackgroundColor.png')} style={styles.bg}>
-          <Image source={require('../../images/logo.png')} style={styles.logo}/>
+          <TouchableWithoutFeedback onPress={this.loginEntreprise.bind(this)}>
+            <Image source={require('../../images/logo.png')} style={styles.logo}/>
+          </TouchableWithoutFeedback>
           <View style={styles.signin}>
-            <Button onPress={Actions.main}>
+            <Button onPress={this.loginIndividual.bind(this)}>
               <Text style={styles.whiteFont}>Sign in</Text>
             </Button>
           </View>
@@ -84,3 +104,6 @@ var styles = StyleSheet.create({
       color: '#FFF'
     },
 });
+
+
+export default connect()(LoginComponent);

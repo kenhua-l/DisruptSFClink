@@ -86,10 +86,10 @@ export default class Clink extends Component {
     Linking.openURL("tel:+441302762259").catch(err => console.error('An error occurred', err));
   }
   ln() {
-    Linking.openURL("https://www.linkedin.com/in/ncnlinh").catch(err => console.error('An error occurred', err));
+    Linking.openURL("https://www.linkedin.com/in/asharppaul").catch(err => console.error('An error occurred', err));
   }
   fb() {
-    Linking.openURL("https://facebook.com/ncnlinh").catch(err => console.error('An error occurred', err));
+    Linking.openURL("https://twitter.com/asharppaul").catch(err => console.error('An error occurred', err));
   }
   render () {
     var AnimatedModalBox = Animated.createAnimatedComponent(ModalBox);
@@ -129,8 +129,8 @@ export default class Clink extends Component {
                     </TouchableOpacity>
                     <View style={{alignSelf: 'center', height: 0, marginLeft: 56, width: Dimensions.get('window').width - 80, borderTopWidth: 1, borderColor: 'rgba(0,0,0,0.13)'}}/>
                     <TouchableOpacity onPress={this.fb} style={{paddingTop: 24, paddingBottom: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                        <Image style={{width: 24, height: 24}} source={require("../../images/Facebook.png")}/>
-                        <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>Alan Sharp-Paul</Text>
+                        <Image style={{width: 24, height: 24}} source={require("../../images/twitter.png")}/>
+                        <Text style={{flex: 1, marginLeft: 16, paddingTop: 4, paddingBottom: 4, fontSize: 16, color: 'black'}}>@asharppaul</Text>
                         <Text style={{fontSize: 14, fontWeight: '500',color: '#2AA7DC', marginRight: 8}}>Connect</Text>
                     </TouchableOpacity>
                 </View>
