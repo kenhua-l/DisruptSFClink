@@ -119,7 +119,7 @@ class App extends Component {
                         <Scene key="main" navBar={NavBar} component={Home} tabs={true} barTintColor={'#ffffff'} tintColor={'#15B4F1'} inactiveTintColor={'#000000'}>
                             <Scene navBar={NavBarHome} title="Home" key="landing" component={Landing} icon={'home'} sceneStyle={{paddingTop: 136}} />
                             <Scene navBar={NavBar} key="viewfriend" title="Your Clinks" component={Friend} hideNavBar={false} icon={'people'} sceneStyle={{paddingTop: 80}}/>
-                            <Scene navBar={NavBar} key="editprofile" title="Your Profile" component={EditScreen} hideNavBar icon={'more-horiz'} hideNavBar={false} sceneStyle={{paddingTop: 80}} initial/>
+                            <Scene navBar={NavBar} key="editprofile" title="Your Profile" component={EditScreen} hideNavBar icon={'person'} hideNavBar={false} sceneStyle={{paddingTop: 80}} initial/>
                         </Scene>
                         <Scene animation='fade' hideNavBar={false} navBar={NavBarBig} key="fullDetails" component={FullDetailScreenAlan} sceneStyle={{paddingTop: 136}} />
                         <Scene hideNavBar={false} navBar={NavBar} title="TechCrunch SF" key="eventPeople" component={EventPeopleScreen} sceneStyle={{paddingTop: 80}} renderRightButton={this.renderClinkButton}/>
