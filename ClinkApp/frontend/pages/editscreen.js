@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+    Dimensions,
     View,
     Text,
     Image,
@@ -20,46 +21,72 @@ import {
 
 import KeyboardSpacer from '../../components/KeyboardSpacer';
 import { DetailCard } from '../detailCard';
-const input = {alignItems: 'center', textAlign: 'center', width: 250, underlineColorAndroid:'transparent', marginLeft: 16, marginRight: 16, marginBottom: 16, paddingTop: 0, paddingBottom: 10, fontSize: 14, placeholderTextColor: 'rgba(0,0,0,0.40)', color:'black'};
-const label = {alignItems: 'center', textAlign: 'center', marginBottom: 2, marginLeft: 16, marginRight: 16,  fontSize: 10, color:'#B0B0B0'};
 export default class EditScreen extends Component {
     render() {
         return (
             <View style={{backgroundColor: 'white', flex: 1}}>
-            <ScrollView style={{flex: 1}}>
-                <View style={{ backgroundColor: 'white', alignItems: 'center', paddingTop: 25, paddingBottom: 80}}> 
-                    <Image style={{height: 88, width: 88}} source={require('../../images/ProfileImg.png')}/>
-                    <View style={{ paddingTop: 40    }}>
+                <ScrollView style={{flex: 1}}>
+                    <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', paddingTop: 25, paddingBottom: 80}}> 
+                        <View style={{width: Dimensions.get('window').width - 32, marginTop: -12}}>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                                <Text style={styles.header}>Personal Information</Text>
+                                <TouchableOpacity style={{elevation: 2, flexDirection: 'row', alignItems: 'center', backgroundColor: '#0077B5', paddingTop: 4, paddingBottom: 4, paddingLeft: 4, paddingRight: 8, borderRadius: 4}}>
+                                    <Image style={{width: 24, height: 24}} source={require("../../images/LinkedIn_white.png")}/>
+                                    <Text style={{fontSize: 14, fontWeight: '500',color: 'white', marginLeft: 8}}>Import</Text>
+                                </TouchableOpacity>
+                            </View>
+                            <Text style={styles.label}>Avatar</Text>
+                            <Image style={{height: 88, width: 88, marginTop: 4, marginBottom: 4}} source={require('../../images/ProfileImg.png')}/>
+                            <Text style={styles.label}>Full name</Text>
+                            <TextInput
+                                underlineColorAndroid='rgba(0,0,0,0.25)'
+                                placeholderTextColor='rgba(0,0,0,0.40)'
+                                value={"Alexey Matyushkin"}
+                                style={styles.input}
+                                placeholder='Name'
+                            />
+                            <Text style={styles.label}>Email</Text>
+                            <TextInput
+                                underlineColorAndroid='rgba(0,0,0,0.25)'
+                                placeholderTextColor='rgba(0,0,0,0.40)'
+                                value={"contacts@alexeym.ca"}
+                                style={styles.input}
+                                placeholder='Position'
+                            />
+                            <Text style={styles.label}>Contact Number</Text>
+                            <TextInput
+                                underlineColorAndroid='rgba(0,0,0,0.25)'
+                                placeholderTextColor='rgba(0,0,0,0.40)'
+                                value={"+1 (650) 123-4567"}
+                                style={styles.input}
+                                placeholder='Contact Number'
+                            />
+                            <View style={{paddingTop: 24}}/>
+                            <Text style={styles.header}>Company Information</Text>
+                            <Image style={{width: 100, resizeMode: 'contain'}} source={require("../../images/padlet_pink_logo.png")}/>
+                            <Text style={styles.label}>Name</Text>
+                            <TextInput
+                                underlineColorAndroid='rgba(0,0,0,0.25)'
+                                placeholderTextColor='rgba(0,0,0,0.40)'
+                                value={"Padlet"}
+                                style={styles.input}
+                                placeholder='Name'
+                            />
+                            <Text style={styles.label}>Position</Text>
+                            <TextInput
+                                underlineColorAndroid='rgba(0,0,0,0.25)'
+                                placeholderTextColor='rgba(0,0,0,0.40)'
+                                value={"Mobile Developer"}
+                                style={styles.input}
+                                placeholder='Position'
+                            />
+                        </View>
+                        <TouchableOpacity style={styles.button} onPress={Actions.landing}>
+                          <Text style={styles.whiteFont}>SAVE</Text>
+                        </TouchableOpacity>
                     </View>
-                    <Text style={label}>Full name</Text>
-                    <TextInput
-                        value={"Alexey Matyushkin"}
-                        style={input}
-                        placeholder='Name'
-                    />
-                    <Text style={label}>Company</Text>
-                    <TextInput
-                        value={"Self Employed"}
-                        style={input}
-                        placeholder='Company'
-                    />
-                    <Text style={label}>Email</Text>
-                    <TextInput
-                        value={"contacts@alexeym.ca"}
-                        style={input}
-                        placeholder='Position'
-                    />
-                    <Text style={label}>Contact Number</Text>
-                    <TextInput
-                        value={"+1 (650) 123-4567"}
-                        style={input}
-                        placeholder='Contact Number'
-                    />
-                    <TouchableOpacity style={styles.button} onPress={Actions.landing}>
-                      <Text style={styles.whiteFont}>SAVE</Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
+                </ScrollView>
+                <KeyboardSpacer/>
             </View>
         );
     }
@@ -80,4 +107,23 @@ var styles = StyleSheet.create({
     fontWeight: '100',
     color: 'white'
   },
+  input: {
+    paddingTop: 0,
+    fontSize: 14,
+    color:'black'
+  },
+  header: {
+    fontSize: 16,
+    fontWeight: '500',
+    color:'rgba(0,0,0,0.70)',
+    // marginLeft: 4
+  },
+  label: {
+    marginBottom: 2,
+    marginTop: 12,
+    fontSize: 12,
+    fontWeight: '500',
+    color:'rgba(0,0,0,0.56)',
+    marginLeft: 4
+  }
 });
