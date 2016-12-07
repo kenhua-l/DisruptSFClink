@@ -122,7 +122,7 @@ class Clink extends Component {
                 }
                 {(this.state.clinkFound === 1) &&
                   <View style={{ alignItems: 'center', justifyContent: 'center'}}>
-                    <Text style={styles.header}>{this.state.user === 'individual' ? "Alan Sharp-Paul" : "Alexey Matyushkin"}</Text>
+                    <Text style={styles.header}>{this.props.state.user === 'individual' ? "Alan Sharp-Paul" : "Alexey Matyushkin"}</Text>
                     {(this.state.clinkState !== 'find') ?
                     <Text style={styles.subheader}>CLINKED</Text>:
                     <Text style={styles.subheader}>{this.state.clinkFound} FOUND</Text>
@@ -134,7 +134,7 @@ class Clink extends Component {
                       <Pulse color='#15B4F1' numPulses={5} diameter={300} top={0} speed={40} duration={1500}/>
                     }
                     {(this.state.clinkFound === 1) &&
-                      <Image source={this.state.user === 'individual' ? require('../../images/alan.jpg') : require('../../images/jack.png')} style={{height: 160, width: 160, borderRadius: 80}}/>
+                      <Image source={this.props.state.user === 'individual' ? require('../../images/alan.jpg') : require('../../images/jack.png')} style={{height: 160, width: 160, borderRadius: 80}}/>
                     }
                     {(this.state.clinkState === 'clinking') &&
                       <View style={{width: 180, marginLeft: -10, position: 'absolute', alignItems: 'center', justifyContent: 'center', top: 0, left: 0, bottom: 0, right: 0}}>
@@ -151,7 +151,7 @@ class Clink extends Component {
                   {(this.state.clinkState === 'find' && this.state.clinkFound === 1) &&
                     <TouchableOpacity onPress={this.onClink} style={{width: 200, alignItems: 'center', justifyContent: 'center', paddingLeft: 48, paddingRight: 48, paddingTop: 16, paddingBottom: 16, backgroundColor: '#48D2A0', borderRadius: 4}}>
                       <Text style={{color: 'white', fontWeight: '500'}}>
-                        CLINK {this.state.user === 'individual' ? "ALAN" : "ALEXEY"}
+                        CLINK {this.props.state.user === 'individual' ? "ALAN" : "ALEXEY"}
                       </Text>
                     </TouchableOpacity>
                   }
