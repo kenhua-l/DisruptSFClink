@@ -26,7 +26,12 @@ import { DetailCard } from '../detailCard';
 class EditScreen extends Component {
     constructor() {
         super();
-        this.state = {show:false};
+        this.state = {show:false, connected: false};
+    }
+    connect() {
+        this.setState({
+            connected: !this.state.connected,
+        })
     }
     update() {
         individualProfile = {
@@ -34,6 +39,7 @@ class EditScreen extends Component {
             name: "Alexey Matyushkin",
             email: "contacts@alexeym.ca",
             number: "+1 (650) 123-4567",
+            logoWidth: 100,
             logo:require("../../images/padlet_pink_logo.png"),
             company: "Padlet",
             position: "Mobile Developer"
@@ -43,6 +49,7 @@ class EditScreen extends Component {
             name: "Alan Sharp-Paul",
             email: "alan@upguard.com",
             number: "+1 (415) 319-2103",
+            logoWidth: 200,
             logo:require("../../images/upguard.png"),
             company: "Upguard",
             position: "CEO"
@@ -59,14 +66,25 @@ class EditScreen extends Component {
             <View style={{backgroundColor: 'white', flex: 1}}>
                 <ScrollView style={{flex: 1}}>
                     <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', paddingTop: 25, paddingBottom: 80}}> 
-                        <View style={{width: Dimensions.get('window').width - 32, marginTop: -12}}>
-                            <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                                <Text style={styles.header}>Personal Information</Text>
-                                <TouchableOpacity onPress={this.update.bind(this)} style={{elevation: 2, flexDirection: 'row', alignItems: 'center', backgroundColor: '#0077B5', paddingTop: 4, paddingBottom: 4, paddingLeft: 4, paddingRight: 8, borderRadius: 4}}>
-                                    {!this.state.show && <Image style={{width: 24, height: 24}} source={require("../../images/LinkedIn_white.png")}/>}
-                                    <Text style={{fontSize: 14, fontWeight: '500',color: 'white', marginLeft: !this.state.show ? 8 : 4}}>{!this.state.show ? "Import" : "Clear"}</Text>
+                        <View style={{width: Dimensions.get('window').width - 32, marginTop: -8}}>
+                            <View style={{position: 'absolute', right: 0, top: 0}}>
+                                <TouchableOpacity onPress={this.update.bind(this)}
+                                style={{elevation: 2,  flexDirection: 'row', alignItems: 'center', justifyContent: !this.state.show ? 'flex-start' : 'center', backgroundColor: '#0077B5', borderRadius: 4, height: 40, width: 120}}>
+                                    {!this.state.show && <Image style={{marginLeft: 8, marginRight:12,  width: 24, height: 24}} source={require("../../images/LinkedIn_white.png")}/>}
+                                    <Text style={{fontSize: 14, fontWeight: '500',color: 'white'}}>{!this.state.show ? "Import" : "Clear"}</Text>
                                 </TouchableOpacity>
+                                {this.props.state.user === 'enterprise' &&
+                                <View>
+                                    <View style={{marginTop: 8}}/>
+                                    <TouchableOpacity onPress={this.connect.bind(this)}
+                                    style={{elevation: 2, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', backgroundColor: '#fff', borderRadius: 4, height: 40, width: 120}}>
+                                        <Image style={{marginLeft: 8, marginRight:12,  width: 24, resizeMode: 'contain'}} source={require("../../images/salesforce.png")}/>
+                                        <Text style={{fontSize: 14, fontWeight: '500',color: '#2F8FDF'}}>{!this.state.connected ? "Connect" : "Connected"}</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            }
                             </View>
+                            <Text style={styles.header}>Personal Information</Text>
                             <Text style={styles.label}>Avatar</Text>
                             <View style={{marginTop:8 , height: 100}}>
                             {this.state.show ? <Image style={{height: 84, width: 84, borderWidth: 1, borderRadius: 44, margin: 3}} source={this.state.avatar}/> : <View/>}
@@ -98,7 +116,7 @@ class EditScreen extends Component {
                             />
                             <View style={{paddingTop: 24}}/>
                             <Text style={styles.header}>Company Information</Text>
-                            {this.state.show &&  <Image style={{width: 100, resizeMode: 'contain'}} source={this.state.logo}/>}
+                            {this.state.show &&  <Image style={{width: this.state.logoWidth, resizeMode: 'contain'}} source={this.state.logo}/>}
                             <Text style={styles.label}>Name</Text>
                             <TextInput
                                 underlineColorAndroid='rgba(0,0,0,0.25)'
