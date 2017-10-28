@@ -1,6 +1,6 @@
-import LoginComponent from './Login';
-import LandingComponent from './Landing';
-import MainScreenComponent from './MainScreen';
+import LoginComponent from './login';
+import LandingComponent from './landing';
+import MainScreenComponent from './mainscreen';
 import UserScreenComponent from './UserScreen';
 import FriendScreenComponent from './FriendScreen';
 import DetailScreenTravisComponent from './DetailScreenTravis';
@@ -14,7 +14,7 @@ import DetailScreenJackMaComponent from './DetailScreenJackMa';
 import DetailScreenMarissaComponent from './DetailScreenMarissa';
 import DetailScreenAlanComponent from './DetailScreenAlan';
 import DetailScreenKevinComponent from './DetailScreenKevin';
-import EditScreenComponent from './EditScreen';
+import EditScreenComponent from './editscreen';
 import DetailScreenJohnComponent from './DetailScreenJohn';
 
 

@@ -1,6 +1,5 @@
-'use strict';
-
-var React = require('react');
+import React from 'react';
+import PropTypes from 'prop-types';
 var {
   View,
   StyleSheet,
@@ -12,7 +11,7 @@ var {
   BackAndroid,
   Platform,
 } = require('react-native');
-
+import CreateReactClass from 'create-react-class';
 var screen = Dimensions.get('window');
 
 var styles = StyleSheet.create({
@@ -35,30 +34,30 @@ var styles = StyleSheet.create({
 
 });
 
-var ModalBox = React.createClass({
+var ModalBox = CreateReactClass({
 
   propTypes: {
-    isOpen: React.PropTypes.bool,
-    isDisabled: React.PropTypes.bool,
-    startOpen: React.PropTypes.bool,
-    backdropPressToClose: React.PropTypes.bool,
-    swipeToClose: React.PropTypes.bool,
-    swipeThreshold: React.PropTypes.number,
-    expandSwipeLimit: React.PropTypes.number,
-    expandSwipeThreshold: React.PropTypes.number,
-    swipeArea: React.PropTypes.number,
-    position: React.PropTypes.string,
-    entry: React.PropTypes.string,
-    backdrop: React.PropTypes.bool,
-    backdropOpacity: React.PropTypes.number,
-    backdropColor: React.PropTypes.string,
-    backdropContent: React.PropTypes.element,
-    animationDuration: React.PropTypes.number,
-    backButtonClose: React.PropTypes.bool,
+    isOpen: PropTypes.bool,
+    isDisabled: PropTypes.bool,
+    startOpen: PropTypes.bool,
+    backdropPressToClose: PropTypes.bool,
+    swipeToClose: PropTypes.bool,
+    swipeThreshold: PropTypes.number,
+    expandSwipeLimit: PropTypes.number,
+    expandSwipeThreshold: PropTypes.number,
+    swipeArea: PropTypes.number,
+    position: PropTypes.string,
+    entry: PropTypes.string,
+    backdrop: PropTypes.bool,
+    backdropOpacity: PropTypes.number,
+    backdropColor: PropTypes.string,
+    backdropContent: PropTypes.element,
+    animationDuration: PropTypes.number,
+    backButtonClose: PropTypes.bool,
 
-    onClosed: React.PropTypes.func,
-    onOpened: React.PropTypes.func,
-    onClosingState: React.PropTypes.func,
+    onClosed: PropTypes.func,
+    onOpened: PropTypes.func,
+    onClosingState: PropTypes.func,
   },
 
   getDefaultProps: function () {
@@ -107,7 +106,7 @@ var ModalBox = React.createClass({
   componentWillMount: function() {
     this.createPanResponder();
     this.handleOpenning(this.props);
-    
+
   },
 
   componentWillReceiveProps: function(props) {
@@ -189,11 +188,11 @@ var ModalBox = React.createClass({
       this.animateBackdropOpen();
 
     this.state.isAnimateOpen = true;
-  
+
     requestAnimationFrame(() => {
       // Detecting modal position
       this.state.positionDest = this.calculateModalPosition(this.state.containerHeight, this.state.containerWidth);
-  
+
       this.state.animOpen = Animated.timing(
         this.state.position,
         {
