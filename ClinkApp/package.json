@@ -16,10 +16,10 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-native": "^0.49.3",
-    "react-native-button": "^1.7.0",
+    "react-native-button": "^2.1.0",
     "react-native-card-view": "0.0.3",
     "react-native-drawer": "^2.3.0",
-    "react-native-hyperlink": "0.0.5",
+    "react-native-hyperlink": "^0.0.11",
     "react-native-router-flux": "^3.35.0",
     "react-native-vector-icons": "^4.4.2"
   }
