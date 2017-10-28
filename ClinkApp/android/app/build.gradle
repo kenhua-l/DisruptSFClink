@@ -33,6 +33,13 @@ import com.android.build.OutputFile
  *   // bundleInPaidRelease: true,
  *   // bundleInBeta: true,
  *
+ *   // whether to disable dev mode in custom build variants (by default only disabled in release)
+ *   // for example: to disable dev mode in the staging build type (if configured)
+ *   devDisabledInStaging: true,
+ *   // The configuration property can be in the following formats
+ *   //         'devDisabledIn${productFlavor}${buildType}'
+ *   //         'devDisabledIn${buildType}'
+ *
  *   // the root of your project, i.e. where "package.json" lives
  *   root: "../../",
  *
@@ -58,12 +65,16 @@ import com.android.build.OutputFile
  *   inputExcludes: ["android/**", "ios/**"],
  *
  *   // override which node gets called and with what additional arguments
- *   nodeExecutableAndArgs: ["node"]
+ *   nodeExecutableAndArgs: ["node"],
  *
  *   // supply additional arguments to the packager
  *   extraPackagerArgs: []
  * ]
  */
+
+project.ext.react = [
+    entryFile: "index.js"
+]
 
 apply from: "../../node_modules/react-native/react.gradle"
 
@@ -84,7 +95,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.clinkapp"
@@ -94,19 +105,6 @@ android {
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
-        }
-        manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                                onesignal_app_id: "73aeaf3c-2feb-4461-863c-153bd62c0afa",
-                                onesignal_google_project_number: "709727689098"]
-        renderscriptTargetApi 20
-        renderscriptSupportModeEnabled true
-    }
-    signingConfigs {
-        release {
-            storeFile file("my-release-key.keystore")
-            storePassword "clinknvc"
-            keyAlias "my-key-alias"
-            keyPassword "clinknvc"
         }
     }
     splits {
@@ -121,7 +119,6 @@ android {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
@@ -138,31 +135,16 @@ android {
         }
     }
 }
-repositories {
-    maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-}
+
 dependencies {
-    compile project(':react-native-vector-icons')
-    compile project(':react-native-blur')
-    compile project(':react-native-onesignal')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 
-buildscript {
-    repositories {
-        maven { url 'https://github.com/500px/500px-android-blur/raw/master/releases/' }
-    }
-    dependencies {
-        classpath 'com.fivehundredpx:blurringview:1.0.0'
-    }
-}
-
 // Run this once to be able to run the application with BUCK
 // puts all compile dependencies into folder libs for BUCK to use
 task copyDownloadableDepsToLibs(type: Copy) {
-  from configurations.compile
-  into 'libs'
+    from configurations.compile
+    into 'libs'
 }
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"

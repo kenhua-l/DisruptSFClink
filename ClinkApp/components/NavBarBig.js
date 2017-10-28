@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Animated, Dimensions, PixelRatio, Image, StyleSheet, Text, TouchableOpacity, View, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Actions} from 'react-native-router-flux';
@@ -65,12 +66,12 @@ export default class NavBar extends React.Component {
                     <Image style={{height: 40, resizeMode: 'contain'}}source={require('../images/back.png')}/>
                 </TouchableOpacity>
                 <View style={{height: 112, alignItems: 'center', flexDirection: 'row'}}>
-                    
+
                     <View style={{height: 64, marginRight: 16, justifyContent:'center'}}>
                         <Text style={{fontSize: 24, fontWeight: '400', color: 'white'}}>Alan Sharp-Paul</Text>
                         <Text style={{fontSize: 16, marginTop: 4, fontWeight: '200', color: 'rgba(255,255,255,0.65)'}}>CEO of Upguard</Text>
                     </View>
-                    
+
                 </View>
             </View>
         );
@@ -165,7 +166,7 @@ export default class NavBar extends React.Component {
 
 
 NavBar.contextTypes = {
-  drawer: React.PropTypes.object
+  drawer: PropTypes.object
 };
 
 const styles = StyleSheet.create({

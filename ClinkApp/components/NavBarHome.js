@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Animated, Dimensions, PixelRatio, Image, StyleSheet, Text, TouchableOpacity, View, StatusBar, ProgressBarAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Actions} from 'react-native-router-flux';
@@ -184,7 +185,7 @@ export default class NavBar extends React.Component {
 
 
 NavBar.contextTypes = {
-  drawer: React.PropTypes.object
+  drawer: PropTypes.object
 };
 
 const styles = StyleSheet.create({

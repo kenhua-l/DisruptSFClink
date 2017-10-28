@@ -1,7 +1,7 @@
 import React, {
   Component,
-  PropTypes
 } from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Text,
@@ -45,7 +45,7 @@ class Pulse extends Component {
     };
 
   }
-  
+
   componentDidMount(){
     this.setState({
       started: true
@@ -67,7 +67,7 @@ class Pulse extends Component {
   componentWillUnmount(){
     clearInterval(this.timer);
   }
-  
+
   render(){
     if(this.state.started){
       return (
@@ -90,7 +90,7 @@ class Pulse extends Component {
   _createPulse(pKey){
 
     let pulses = this.state.pulses;
-    
+
     let pulse = {
       pulseKey: pulses.length + 1,
       diameter: 0,
@@ -112,7 +112,7 @@ class Pulse extends Component {
       let newDiameter = (p.diameter > maxDiameter ? 0 : p.diameter + 2);
       let centerOffset = ( maxDiameter - newDiameter ) / 2;
       let opacity = Math.abs( ( newDiameter / this.state.maxDiameter ) - 1 );
-      
+
       let pulse = {
         pulseKey: i + 1,
         diameter: newDiameter,
@@ -121,13 +121,13 @@ class Pulse extends Component {
       };
 
       return pulse;
-      
+
     });
 
     this.setState({
       pulses: pulses
     });
-    
+
   }
 }
 
